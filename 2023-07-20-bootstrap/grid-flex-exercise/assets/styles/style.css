@@ -1,0 +1,38 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+#container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: 10% 80% 5% 5% ;
+}
+
+header, footer {
+    grid-column: span 13;
+    background-color: red;
+}
+
+nav {
+    background-color: cyan;
+    display: flex;
+    flex-direction: column;
+}
+
+#content1 {
+    background-color: blueviolet;
+    flex: 1;
+}
+
+#content2 {
+    background-color: aquamarine;
+    flex: 1;
+}
+
+main {
+    background-color: greenyellow;
+    grid-column: span 12;
+    display: flex;
+    flex-direction: row;
+}

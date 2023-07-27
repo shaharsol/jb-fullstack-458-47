@@ -1,0 +1,22 @@
+#header, #content, #footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#navbar, #ad {
+    flex: 1
+}
+
+#video, #article {
+    flex: 2
+}
+
+div {
+    border: 1px solid black
+}
+
+#navbar {
+    display: flex;
+    flex-direction: column;
+}

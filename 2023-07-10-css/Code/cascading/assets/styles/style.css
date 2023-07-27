@@ -1,0 +1,26 @@
+div > span {
+    color: blue;
+}
+
+span {
+    color: green ;
+    font-weight: 900 ;
+    text-decoration: underline ;
+}
+
+.my-class {
+    color: pink;
+    text-decoration: underline;
+}
+
+.my-class2 {
+    color: blue ;
+    text-decoration:none ;
+}
+
+
+#my-span-id {
+    color: gray;
+    font-weight: 400;
+}
+

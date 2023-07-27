@@ -1,0 +1,37 @@
+span {
+    color: green;
+}
+
+p span {
+   text-decoration: underline; 
+}
+
+p > span {
+    font-size: x-large;
+}
+
+p > a > span {
+    font-size: x-small;
+}
+
+p a span {
+    font-style: italic;
+}
+
+p, span {
+    border: 1px blue solid;
+}
+
+/* a.a1 {
+    background-color: green;
+} */
+
+span#span2 {
+    background-color: yellow;
+}
+
+p > span, p span, span#span2 {
+    font-size: small;
+}
+
+

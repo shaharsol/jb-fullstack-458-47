@@ -1,0 +1,79 @@
+/* element name selector */
+
+p {
+    color:red; 
+    background-color: black;
+}
+
+h1 {
+    color: green;
+    background-color: yellow;
+}
+
+h2 {
+    color: pink;
+    background-color: blue;
+}
+
+/* class selectors */
+
+.neon {
+    color: pink;
+    background-color: blue;
+}
+
+.biggish {
+    font-size: xx-large;
+}
+
+.specific {
+    font-style: italic; 
+ }
+
+/* id selectors */
+
+#seventh-paragraph {
+   font-style: italic; 
+}
+
+/* attribure selectors */
+
+p[dir] {
+    color: pink;
+}
+
+p[dir=ltr] {
+    text-decoration: underline;
+    color: white;
+}
+
+p[class=specific] {
+    font-size: x-small;
+}
+
+p[class=neon][class=biggish] {
+    font-size: x-small;
+}
+
+h1[id=myid][class=myclass]{
+    font-size: x-small;
+
+}
+
+/* pseudo selectors */
+p:hover {
+    border: 2px blue dashed
+}
+
+p::selection {
+    text-decoration: underline;
+}
+
+p::first-letter {
+    font-size: larger;
+}
+
+
+
+ 
+

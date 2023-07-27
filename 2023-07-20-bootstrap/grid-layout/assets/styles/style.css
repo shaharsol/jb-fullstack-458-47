@@ -1,0 +1,39 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat (10, 1fr);
+    grid-template-rows: 20% 60% 20%;
+}
+
+header, footer {
+    grid-column: span 10;
+}
+
+main {
+    grid-column: span 8;
+}
+
+header {
+    background-color: red;
+}
+
+nav {
+    background-color: yellow;
+}
+
+main {
+    background-color: blue;
+}
+
+aside {
+    background-color: orangered;
+}
+
+footer {
+    background-color: cyan;
+}
