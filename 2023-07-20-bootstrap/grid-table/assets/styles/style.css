@@ -1,0 +1,14 @@
+#container {
+    height: 1000px;
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 15% 10px 1fr 2fr; 
+}
+
+div {
+    /* border: 1px solid; */
+}
+
+#high {
+    /* height: 1000px; */
+}
