@@ -89,3 +89,8 @@ function newPosition(event) {
   console.log("AQUI");
   painter.moveTo(event.offsetX, event.offsetY);
 }
+
+function setColor(color) {
+  painter.beginPath();
+  painter.strokeStyle = color;
+}
