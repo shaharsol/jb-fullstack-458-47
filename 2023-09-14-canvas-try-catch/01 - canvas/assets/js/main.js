@@ -52,8 +52,40 @@ function drawStuff() {
 }
 
 function mouseDraw(event) {
+  /*
+        event.buttons
+        0 - none pressed
+        1 - left click pressed
+        2 - right click pressed
+        3 - both pressed
+        4 - wheel pressed
+
+    */
+
+  /*
+        == vs ===
+        if ("1" == 1) {
+            console.log('AQUI');
+        }
+
+        if ("1" === 1) {
+            // false!
+        }
+
+        if (1 === 1) {
+            // true!
+        }
+
+    */
   //   console.log(event);
   //   painter.lineTo(event.clientX, event.clientY);
-  painter.lineTo(event.offsetX, event.offsetY);
-  painter.stroke();
+  if (event.buttons === 1) {
+    painter.lineTo(event.offsetX, event.offsetY);
+    painter.stroke();
+  }
+}
+
+function newPosition(event) {
+  console.log("AQUI");
+  painter.moveTo(event.offsetX, event.offsetY);
 }
