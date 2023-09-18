@@ -69,12 +69,22 @@ function func10 (cb) {
 ==============================================================
 */
 
-function doSomething2 {
-    func11(...);
-    func12(...);
-    func13(...);
-    func14(...);
-    func15(...);
+function doSomething2 () {
+    func11(function () { console.log('hello') });
+    func12(function (a, b) { console.log(a + b) });
+    func13(function (a, b) { return a > b ? a : b});
+    func13(function (a, b) { 
+        // const result = a > b ? a : b;
+        let result;
+        if ( a > b ) {
+            result = a;
+        } else {
+            result = b;
+        }
+        return result;
+    });
+    func14(function () { return {name: 'stick', price: 20} });
+    func15(function () { return 100; }, function () { return 1; });
 }
 
 function func11 (callback) {
