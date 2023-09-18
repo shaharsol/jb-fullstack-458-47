@@ -10,3 +10,12 @@ function doSomething () {
     func9(function(x, y , z) { alert(x); alert(y); alert(z);})
     func10(function() { return {name: 'betty', age: 1.5, color: 'gray'}; })
 }
+
+function func1 (callback) {
+    callback();
+}
+
+// function(x, y) { alert(x + y); }
+function func4 (callback) {
+    callback(10, 20);
+}
