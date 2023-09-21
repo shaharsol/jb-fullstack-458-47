@@ -33,3 +33,8 @@ const notifyMe = () => {
 // your exercise:
 // display a clock on the page including seconds
 // hint: use setInterval
+
+setInterval(() => {
+    const now = new Date();
+    document.getElementById('clock').innerText = now.toLocaleTimeString();
+}, 1000);
