@@ -129,8 +129,30 @@ console.log(sum/grades.length);
 
 // const grades = [66, 78, 80, 81, 88, 90, 93, 96, 100];
 // using only HOF functions
-// print a string of all grades above 90, powered by 2, and concatenated with '|'
+// return a string of all grades above 90, powered by 2, and concatenated with '|'
 // 8649 | 9216 | 10000
+
+// original code
+const filtered = grades.filter(grade => grade > 90);
+const powered = filtered.map(grade => grade ** 2);
+const concatenated = powered.reduce((accumulator, grade) => `${accumulator} | ${grade}`, '');
+console.log(concatenated);
+
+// shortened code
+const concatenated2 = grades
+    .filter(grade => grade > 90)
+    .map(grade => grade ** 2)
+    .reduce((accumulator, grade) => `${accumulator} | ${grade}`, '');
+
+console.log(concatenated2);
+
+// efficiency question
+const concatenated3 = grades
+    .map(grade => grade ** 2)
+    .filter(grade => grade > 8100)
+    .reduce((accumulator, grade) => `${accumulator} | ${grade}`, '');
+
+console.log(concatenated3);
 
 
 
