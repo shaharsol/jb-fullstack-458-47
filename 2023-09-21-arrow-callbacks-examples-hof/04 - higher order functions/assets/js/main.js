@@ -3,7 +3,6 @@
 
 const grades = [66, 78, 80, 81, 88, 90, 93, 96, 100];
 
-
 // for (let i=0; i < grades.length; i++) {
 //     if (grades[i] > 90) {
 //         console.log(`found ${grades[i]} in offset ${i}`);
@@ -26,6 +25,31 @@ console.log(result);
 // finds the first element that is lower than 60
 result = grades.find(grade => grade < 60)
 console.log(result);
+"bar"
+1
+"1"
+grades.
+
+console.log(grades.find(grade => grade < 60))
+for (let i=0; i < grades.length; i++ ) {
+    if (grades[i] < 60) {
+        return grades[i];
+        break;
+    }
+}
+
+
+// for (let i=0; i < grades.length; i++ ) {
+//     if (grades[i] > 90) {
+//         return grades[i]
+//     }
+// }
+
+// for (let i=0; i < grades.length; i++ ) {
+//     if (grades[i] === 'bar') {
+//         return grades[i]
+//     }
+// }
 
 // findIndex - finds the index of the 1st element in the array that satisfies a condition
 
