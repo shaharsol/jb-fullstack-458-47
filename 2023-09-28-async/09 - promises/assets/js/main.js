@@ -24,6 +24,7 @@ const getRandomNumberWithPromise = (x) => {
         }, 1000)
     })
 }
+
 // Promise has 3 possible states:
 // 1. pending
 // 2. resolved
