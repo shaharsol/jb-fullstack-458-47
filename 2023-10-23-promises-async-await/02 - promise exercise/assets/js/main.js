@@ -5,7 +5,7 @@
 
 // get user location with promises
 const displayRandomNumber = () => {
-    getRandomNumber2()
+    getRandomNumber()
         .then(data => console.log(data))
         .catch(err => console.error(err))
     
@@ -15,7 +15,9 @@ const getRandomNumber = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             const number = Math.random();
-            if ( number < 0.5 ) reject('number smaller than 0.5');
+            if ( number < 0.5 ) {
+                reject('number smaller than 0.5');
+            }
             resolve(number);
         }, 1000)
     });
@@ -28,6 +30,23 @@ const getRandomNumber2 = () => {
                 const number = Math.random();
                 if ( number < 0.5 ) throw('number smaller than 0.5');
                 resolve(number);
+            }
+            catch (e) {
+                reject(e);
+            }
+        }, 1000)
+    });
+}
+
+// schematic example of how a catch block in a promise, deals both with external 
+// exceptions, AND internal exceptions
+const getYnet = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            try {
+                content = fetch('https://ynet.co.il');
+                if (content.title === 'War is over') throw ('unbelievable title');
+                resolve(content);
             }
             catch (e) {
                 reject(e);
