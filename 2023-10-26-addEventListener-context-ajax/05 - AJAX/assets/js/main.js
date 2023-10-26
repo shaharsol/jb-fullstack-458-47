@@ -28,6 +28,8 @@
     */
 
     const usersButton = document.getElementById('usersButton');
+    const todosButton = document.getElementById('todosButton');
+
     usersButton.addEventListener('click', async () => {
         // once, to invoke an ajax call, we used something called:
         // XMLHttpRequest
@@ -70,6 +72,23 @@
         //         const usersTableBody = document.getElementById('usersTableBody');
         //         usersTableBody.innerHTML = reduced;
         //     })
+    });
+
+    todosButton.addEventListener('click', async () => {
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+
+        const todos = await response.json();
+
+        const reduced = todos.map(todo => `
+            <tr>
+                <td>${todo.userId}</td>
+                <td>${todo.title}</td>
+                <td><input type="checkbox" ${todo.completed ? 'checked' : ''}></td>
+            </tr>
+        `).reduce((acumulator, tr) => acumulator + tr, '')
+
+        const todosTableBody = document.getElementById('todosTableBody');
+        todosTableBody.innerHTML = reduced;
     });
 
 })();
