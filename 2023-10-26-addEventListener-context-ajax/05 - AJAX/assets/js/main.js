@@ -81,13 +81,18 @@
     }
 
     const displayTodos = (todos) => {
-        const reduced = todos.map(todo => `
+        console.log(todos);
+        const mapped = todos.map(todo => `
             <tr>
                 <td>${todo.userId}</td>
                 <td>${todo.title}</td>
                 <td><input type="checkbox" ${todo.completed ? 'checked' : ''}></td>
             </tr>
-        `).reduce((acumulator, tr) => acumulator + tr, '')
+        `);
+        console.log(mapped);
+        
+        const reduced = mapped.reduce((acumulator, item) => acumulator + item, '')
+        console.log(reduced);
 
         const todosTableBody = document.getElementById('todosTableBody');
         todosTableBody.innerHTML = reduced;
