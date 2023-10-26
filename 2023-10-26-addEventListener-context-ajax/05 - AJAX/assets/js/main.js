@@ -41,21 +41,9 @@
 
         // a tool to view JSON as structured data: https://jsonviewer.stack.hu/
 
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+        const users = await getDataFromServer('https://jsonplaceholder.typicode.com/users');
 
-        const users = await response.json();
-
-        const reduced = users.map(user => `
-            <tr>
-                <td>${user.name}</td>
-                <td>${user.email}</td>
-                <td>${user.address.city}</td>
-            </tr>
-        `).reduce((acumulator, tr) => acumulator + tr, '')
-
-        const usersTableBody = document.getElementById('usersTableBody');
-        usersTableBody.innerHTML = reduced;
-
+        displayUsers(users);
 
         // the same code with promises instead of async/await
         // fetch('https://jsonplaceholder.typicode.com/users')
@@ -75,10 +63,24 @@
     });
 
     todosButton.addEventListener('click', async () => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos');
 
-        const todos = await response.json();
+        const todos = await getDataFromServer('https://jsonplaceholder.typicode.com/todos');
 
+        displayTodos(todos);
+    });
+
+    const getDataFromServer = async (url) => {
+        // fetch
+        const response = await fetch(url);
+
+        // json
+        const json = await response.json();
+
+        // return json
+        return json;
+    }
+
+    const displayTodos = (todos) => {
         const reduced = todos.map(todo => `
             <tr>
                 <td>${todo.userId}</td>
@@ -89,6 +91,20 @@
 
         const todosTableBody = document.getElementById('todosTableBody');
         todosTableBody.innerHTML = reduced;
-    });
+    }
+
+    const displayUsers = (users) => {
+        const reduced = users.map(user => `
+            <tr>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td>${user.address.city}</td>
+            </tr>
+        `).reduce((acumulator, tr) => acumulator + tr, '')
+
+        const usersTableBody = document.getElementById('usersTableBody');
+        usersTableBody.innerHTML = reduced;
+
+    }    
 
 })();
