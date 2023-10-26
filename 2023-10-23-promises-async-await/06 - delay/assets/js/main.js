@@ -34,6 +34,6 @@ const delay = (ms) => {
         setTimeout(() => {
             resolve();
         }, ms);
-    })
+    });
 }
 
