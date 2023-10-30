@@ -74,5 +74,29 @@ button7.addEventListener('click', () => {
 })
 
 
+// array, argument, variable
+// variable - memory cell, can contain anything
+const v = 1;
+const z = '1';
+const y = [1, 2, 3, 4];
+// array [] is an ordered list of variables, sharing the same memory cell
+// argument is a variable sent to a function
+function f(a, b) {
+    return a + b;
+}
+// a is an argument,
+// b is an argument
+// function bar() {}
+// async function bar() {}
+
+
+/*
+downloadFile('http://cvnxcmvnmxcv.com/a/b')
+    .then(file => copyToCDN(file))
+    .then(fileUrl => console.log(fileUrl))
+    .catch(e => console.err(e))
+*/
+
+
 
 

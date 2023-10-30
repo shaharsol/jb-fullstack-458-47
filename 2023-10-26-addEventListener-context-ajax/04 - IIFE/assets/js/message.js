@@ -18,6 +18,8 @@
     function getNumber() {
         return 24;
     }
-    
+
 })();
+
+// any new *.js file, will start with an IIFE
 
