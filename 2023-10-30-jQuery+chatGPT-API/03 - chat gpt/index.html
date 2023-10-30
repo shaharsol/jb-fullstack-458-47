@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/main.js"></script>
+</head>
+
+<body>
+    <form id="gptForm">
+        <input type="number" id="amount" placeholder="number of questions/answers to return">
+        <br />
+        <select id="language">
+            <option>Javascript</option>
+            <option>C++</option>
+            <option>Python</option>
+            <option>HTML</option>
+            <option>Ruby</option>
+        </select>
+        <br />
+        <select id="level">
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Expert</option>
+        </select>
+        <br />
+        <button>get questions</button>
+    </form>
+
+    <div id="gptResults">
+
+    </div>
+</body>
+
+</html>
