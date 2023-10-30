@@ -164,8 +164,8 @@ console.log(concatenated);
 
 // shortened code
 const concatenated2 = grades
-    .filter(grade => grade > 90)
-    .map(grade => grade ** 2)
+    .filter(grade => grade > 90) // takes a big array, returns a smaller array
+    .map(grade => grade ** 2) // ליצור מערך מקביל, בו כל תא מחושב לפי אותה נוסחה, תלוי במערך המקורי.
     .reduce((accumulator, grade) => `${accumulator} | ${grade}`, '');
 
 console.log(concatenated2);
@@ -178,6 +178,25 @@ const concatenated3 = grades
 
 console.log(concatenated3);
 
+
+const original = [1,2,3,4];
+const mapped = original.map(item => item - 1);
+// mapped = [0,1,2,3]
+// original | mapped
+// =================
+// 1        | 0
+// 2        | 1
+// 3        | 2
+// 4        | 3
+
+const mapped = original.map(item => item ^ 2);
+// mapped = [1,4,9,16]
+// original | mapped
+// =================
+// 1        | 1
+// 2        | 4
+// 3        | 9
+// 4        | 16
 
 
 
