@@ -42,4 +42,15 @@ $(() => {
         })
     })
 
+    $('#domButton').on('click', () => {
+        // $('#secondDiv').css('background-color', 'green');
+        // $('#secondDiv').next().css('background-color', 'green');
+        // $('#secondDiv').prev().css('background-color', 'green');
+        // $('#secondDiv').next().next().css('background-color', 'green');
+        // $('#secondDiv').siblings().css('background-color', 'green');
+        // $('#secondDiv').siblings('div').css('background-color', 'green');
+        // $('#secondDiv').parent().css('background-color', 'green');
+        $('#secondDiv').next().children().css('background-color', 'green');
+    })
+
 })
