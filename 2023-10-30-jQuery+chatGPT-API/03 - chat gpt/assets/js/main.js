@@ -67,5 +67,6 @@
 
         document.getElementById('gptResults').innerHTML = html;
     }
+    
 
 })();
