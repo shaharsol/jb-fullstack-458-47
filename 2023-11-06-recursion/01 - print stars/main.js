@@ -13,10 +13,12 @@ function printStars (number) {
     if (number === 0) return;
 
     // 3. do the single thing
-    // * * * * * * * * * * 
+    // entire set: * * * * * * * * * * 
+    // single: *
     document.write('* ')
 
     // 4. call the recursion with the rest of the task
+    // * * * * * * * * *
     printStars(number - 1);
 }
 
@@ -33,4 +35,17 @@ const someSyncFunc = (number) => {
 // do i need to call them differently? depending on their type?
 // someSyncFunc(2)
 // await someAsyncFunc(2)
+
+
+/*
+
+the call        | how many asteriks painted | what's left
+
+printStars(10)  | *                         | 9*
+printStars(9)   | * *                       | 8*
+printStars(8)   | * * *                     | 7*
+printStars(7)   | * * * *                   | 6*
+printStars(6)   | * * * * *                 | 5*
+
+*/
 
