@@ -6,6 +6,7 @@ function r1() {
 function displayTill(n) {
     if (n <= 0) return;
     console.log(n);
+    document.getElementById('bar').innerHTML += n;
     displayTill(n-1);
 }
 
@@ -36,8 +37,38 @@ function r4() {
     displayTillReverse(n);
 }
 
+// function displayTill(n) {
+//     if (n <= 0) return;
+//     console.log(n);
+//     displayTill(n-1);
+// }
+
 function displayTillReverse(n) {
+    alert(`enter ${n}`)
     if (n <= 0) return;
     displayTillReverse(n-1);
+    alert(`after recursion ${n-1}`)
     console.log(n);
 }
+
+function r5() {
+    const n = +prompt('number?');
+    console.log(factorial(n));
+}
+
+function factorial(n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+};
+
+// factorial(3)
+// return 3 * factorial(2)
+// factorial(2)
+// return 2 * factorial(1)
+// factorial(1)
+// return 1;
+// 2 * factorial(1) = 2
+// 3 * 2 = 6
+
+
+
