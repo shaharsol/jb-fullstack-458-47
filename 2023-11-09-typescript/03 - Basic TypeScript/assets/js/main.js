@@ -3,6 +3,7 @@ let age;
 age = 19;
 // age = '19'; // error
 let username;
+export let bara;
 username = 'Bar';
 let isStudent;
 isStudent = true;
@@ -55,12 +56,14 @@ const someNewVar = calcSomething(1, 1);
 const someConst = doSomething(1, '', true);
 console.log('hello class');
 console.log('hello class');
-import { plus, multiply } from './calc.js';
+import { plus, multiply, housename } from './calc.js'; // import from something that was exported without a default
+// an export without a default will always stack inside a single object {}
 const result = plus(1, 2);
 console.log(result);
+console.log(housename);
 const result2 = multiply(3, 5);
 console.log(result2);
-import bar from './printing.js';
-bar.printMessage('some string');
+import hagai from './printing.js';
+hagai.printMessage('some string');
 import doAnotherThing from './single.js';
 console.log(doAnotherThing(6, 6));

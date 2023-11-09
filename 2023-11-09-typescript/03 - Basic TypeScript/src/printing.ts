@@ -7,7 +7,10 @@ function printNow(): void {
     console.log(now.toLocaleDateString());
 }
 
-export default {
+// when we export default, we export a "nameless" export
+// which means the importer client can choose a name for the import
+// as they like
+export default { 
     printMessage,
     printNow
 }

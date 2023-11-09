@@ -7,3 +7,9 @@ export function multiply(a, b) {
 function minus(a, b) {
     return a - b;
 }
+export const housename = 'Mazal';
+/*
+export {
+    plus, multiply, housename
+}
+*/
