@@ -53,4 +53,9 @@ function flatten(obj) {
     }
 }
 
+//
+console.log(typeof 'Bar')
+console.log(typeof 2)
+console.log(typeof {name: 'bar', age: 26});
+
 
