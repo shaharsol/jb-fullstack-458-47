@@ -1,6 +1,5 @@
-export default class Product {
+class Product {
     constructor(name, desc, price, discount) {
-        this.vat = 1.17;
         this.name = name;
         this.desc = desc;
         this.price = price;
@@ -13,6 +12,12 @@ export default class Product {
         console.log(`${this.name} discount is ${this.discount}`);
     }
     getPriceWithVat() {
-        return this.price * this.vat;
+        return this.price * Product.vat;
+    }
+    static whereWereYouMade() {
+        return Product.madeIn;
     }
 }
+Product.vat = 1.17;
+Product.madeIn = 'Israel';
+export default Product;

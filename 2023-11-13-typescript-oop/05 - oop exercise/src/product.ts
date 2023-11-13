@@ -3,7 +3,8 @@ export default class Product {
     public desc: string;
     public price: number;
     public discount: number;
-    public readonly vat = 1.17;
+    public static readonly vat = 1.17;
+    private static readonly madeIn = 'Israel';
 
     public constructor(name: string, desc: string, price: number, discount: number) {
         this.name = name;
@@ -20,6 +21,10 @@ export default class Product {
     }
 
     public getPriceWithVat(): number {
-        return this.price * this.vat;
+        return this.price * Product.vat;
+    }
+
+    public static whereWereYouMade(): string {
+        return Product.madeIn;
     }
 }
