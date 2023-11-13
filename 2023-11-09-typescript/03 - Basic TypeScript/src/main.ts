@@ -87,3 +87,9 @@ hagai.printMessage('some string');
 
 import doAnotherThing from './single.js';
 console.log(doAnotherThing(6, 6));
+
+import { func1 as calcFunc } from './calc.js'
+import { func1 as prinitngFunc} from './printing.js'
+
+calcFunc();
+prinitngFunc();

@@ -11,7 +11,9 @@ function minus(a: number, b: number): number {
 }
 
 export const housename: string = 'Mazal';
-
+export function func1(): void {
+    console.log('in calc.ts')
+}
 /*
 export {
     plus, multiply, housename
