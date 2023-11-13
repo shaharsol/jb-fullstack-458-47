@@ -15,4 +15,11 @@ export default class Vehicle {
     showManufacturer() {
         console.log(this.manufacturer);
     }
+    display() {
+        console.log(`manufacturer: ${this.manufacturer}`);
+        console.log(`model: ${this.model}`);
+        console.log(`color: ${this.color}`);
+        console.log(`yearMade: ${this.yearMade}`);
+        console.log(`price: ${this.price}`);
+    }
 }

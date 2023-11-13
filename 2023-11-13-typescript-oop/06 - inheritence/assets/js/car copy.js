@@ -10,7 +10,4 @@ export default class Car extends Vehicle {
     }
     openBackDoor() {
     }
-    makeSound() {
-        console.log('roosh roosh');
-    }
 }

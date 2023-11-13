@@ -1,22 +1,22 @@
 import Vehicle from "./Vehicle.js";
 
-export default class Car extends Vehicle {
-    public numberOfSeats: number;
+export default class Bike extends Vehicle {
+    public isAllowedPassenger: boolean;
 
     // a derived constructor needs the following:
     // an argument list of ALL members, including ancestor
     // calling super() to initialize the ancestor
     // and then add my own initialization
-    public constructor(manufacturer: string, model: string, color: string, yearMade: number, price: number, numberOfSeats: number) {
+    public constructor(manufacturer: string, model: string, color: string, yearMade: number, price: number, isAllowedPassenger: boolean) {
         super(manufacturer, model, color, yearMade, price);
-        this.numberOfSeats = numberOfSeats;
+        this.isAllowedPassenger = isAllowedPassenger;
     }
 
-    public openBackDoor(): void {
+    public saleUp(): void {
 
     }
 
     public makeSound(): void {
-        console.log('roosh roosh')
+        console.log('voom voom')
     }
 }
