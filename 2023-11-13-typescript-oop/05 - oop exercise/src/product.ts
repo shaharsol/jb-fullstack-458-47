@@ -18,6 +18,7 @@ export default class Product {
         console.log(`${this.name} desc is ${this.desc}`)
         console.log(`${this.name} price is ${this.price}`)
         console.log(`${this.name} discount is ${this.discount}`)
+        console.log(`${this.name} madeIn is ${Product.madeIn}`)
     }
 
     public getPriceWithVat(): number {
