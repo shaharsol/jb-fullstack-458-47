@@ -5,3 +5,4 @@ export default class Person {
     constructor(public maritalStatus: MaritalStatus) { }
 
 }
+
