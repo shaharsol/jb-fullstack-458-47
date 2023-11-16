@@ -16,9 +16,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import productsListener from "./event-listeners/products-table.js";
 import reduceProducts from "./reducers/products.js";
 import { presentProductsTable } from "./ui/products.js";
 (() => __awaiter(void 0, void 0, void 0, function* () {
+    // initialization
+    document.getElementById('products-table-body').addEventListener('click', productsListener);
     // get data
     const response = yield fetch('https://dummyjson.com/products');
     const json = yield response.json();

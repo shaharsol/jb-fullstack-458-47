@@ -8,11 +8,15 @@ be able to create a new product
 
 */
 
+import productsListener from "./event-listeners/products-table.js";
 import Product from "./interfaces/product.js";
 import reduceProducts from "./reducers/products.js";
 import { presentProductsTable } from "./ui/products.js";
 
 (async () => {
+    // initialization
+    document.getElementById('products-table-body').addEventListener('click', productsListener)
+
     // get data
     const response = await fetch('https://dummyjson.com/products');
 
