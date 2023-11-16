@@ -8,31 +8,9 @@ be able to create a new product
 
 */
 
-interface Product {
-    id: number;
-    title: string;
-    description: string;
-    price: number;
-    rating: number;
-}
-
-function reduceProducts(products: Product[]): string {
-    return products
-        .map(product => `
-            <tr>
-                <td>${product.id}</td>
-                <td>${product.title}</td>
-                <td>${product.description}</td>
-                <td>${product.price}</td>
-                <td>${product.rating}</td>
-            </tr>
-        `)
-        .reduce((acc, curr) => acc + curr, '')
-}
-
-function presentProductsTable(html: string): void {
-    document.getElementById('products-table-body').innerHTML = html;
-}
+import Product from "./interfaces/product.js";
+import reduceProducts from "./reducers/products.js";
+import { presentProductsTable } from "./ui/products.js";
 
 (async () => {
     // get data

@@ -16,23 +16,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-function reduceProducts(products) {
-    return products
-        .map(product => `
-            <tr>
-                <td>${product.id}</td>
-                <td>${product.title}</td>
-                <td>${product.description}</td>
-                <td>${product.price}</td>
-                <td>${product.rating}</td>
-            </tr>
-        `)
-        .reduce((acc, curr) => acc + curr, '');
-}
-function presentProductsTable(html) {
-    document.getElementById('products-table-body').innerHTML = html;
-}
-(() => __awaiter(this, void 0, void 0, function* () {
+import reduceProducts from "./reducers/products.js";
+import { presentProductsTable } from "./ui/products.js";
+(() => __awaiter(void 0, void 0, void 0, function* () {
     // get data
     const response = yield fetch('https://dummyjson.com/products');
     const json = yield response.json();
