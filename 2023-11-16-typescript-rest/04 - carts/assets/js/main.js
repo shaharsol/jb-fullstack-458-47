@@ -1,4 +1,4 @@
-(async () => {
+$(async () => {
     const response = await fetch('https://dummyjson.com/carts');
     const { carts } = await response.json();
     const html = carts.map(cart => `
@@ -12,4 +12,4 @@
     `).reduce((acc, curr) => acc + curr, '');
     document.getElementById('carts').innerHTML = html;
 
-})();
+});
