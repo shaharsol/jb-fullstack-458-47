@@ -1,6 +1,6 @@
 import Product from "../interfaces/product.js";
 
-export default function reduceProducts(products: Product[]): string {
+export function reduceProducts(products: Product[]): string {
     return products
         .map(product => `
             <tr id="tr-${product.id}">
@@ -14,4 +14,8 @@ export default function reduceProducts(products: Product[]): string {
             </tr>
         `)
         .reduce((acc, curr) => acc + curr, '')
+}
+
+export function reduceTotalPrice(products: Product[]): number {
+    return products.reduce((accumulator, current) => accumulator + current.price, 0);
 }

@@ -1,4 +1,4 @@
-export default function reduceProducts(products) {
+export function reduceProducts(products) {
     return products
         .map(product => `
             <tr id="tr-${product.id}">
@@ -12,4 +12,7 @@ export default function reduceProducts(products) {
             </tr>
         `)
         .reduce((acc, curr) => acc + curr, '');
+}
+export function reduceTotalPrice(products) {
+    return products.reduce((accumulator, current) => accumulator + current.price, 0);
 }

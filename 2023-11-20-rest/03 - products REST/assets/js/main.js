@@ -17,8 +17,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import productsListener from "./event-listeners/products-table.js";
-import reduceProducts from "./reducers/products.js";
-import { presentNumberOfProducts, presentProductsTable } from "./ui/products.js";
+import { reduceProducts, reduceTotalPrice } from "./reducers/products.js";
+import { presentNumberOfProducts, presentProductsTable, presentTotalPrice } from "./ui/products.js";
 (() => __awaiter(void 0, void 0, void 0, function* () {
     // initialization
     document.getElementById('products-table-body').addEventListener('click', productsListener);
@@ -29,7 +29,9 @@ import { presentNumberOfProducts, presentProductsTable } from "./ui/products.js"
     // prepare data for presentation
     const productsHtml = reduceProducts(products);
     const numberOfRows = products.length;
+    const totalPrice = reduceTotalPrice(products);
     // present data (UI)
     presentProductsTable(productsHtml);
     presentNumberOfProducts(numberOfRows);
+    presentTotalPrice(totalPrice);
 }))();

@@ -4,3 +4,6 @@ export function presentProductsTable(html) {
 export function presentNumberOfProducts(num) {
     document.getElementById('number-of-rows').innerHTML = num.toString();
 }
+export function presentTotalPrice(totalPrice) {
+    document.getElementById('total-price').innerHTML = totalPrice.toString();
+}

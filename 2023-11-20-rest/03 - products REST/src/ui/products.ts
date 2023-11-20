@@ -5,3 +5,7 @@ export function presentProductsTable(html: string): void {
 export function presentNumberOfProducts(num: number): void {
     document.getElementById('number-of-rows').innerHTML = num.toString();
 }
+
+export function presentTotalPrice(totalPrice: number): void {
+    document.getElementById('total-price').innerHTML = totalPrice.toString();
+}
