@@ -8,6 +8,7 @@ be able to create a new product
 
 */
 
+import productFormListener from "./event-listeners/product-form-listener.js";
 import productsListener from "./event-listeners/products-table.js";
 import Product from "./interfaces/product.js";
 import { reduceAverageRating, reduceProducts, reduceSmartphonesAveragePrice, reduceTotalPrice } from "./reducers/products.js";
@@ -16,6 +17,7 @@ import { presentAverageRating, presentNumberOfProducts, presentProductsTable, pr
 (async () => {
     // initialization
     document.getElementById('products-table-body').addEventListener('click', productsListener)
+    document.getElementById('add-product-form').addEventListener('submit', productFormListener)
 
     // get data
     const response = await fetch('https://dummyjson.com/products');

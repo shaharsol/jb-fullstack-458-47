@@ -12,6 +12,7 @@ export default function rest(method, endpoint, data) {
         const options = {
             method,
             body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' },
         };
         const response = yield fetch(endpoint, options);
         const json = yield response.json();

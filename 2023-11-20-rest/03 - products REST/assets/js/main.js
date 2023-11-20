@@ -16,12 +16,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import productFormListener from "./event-listeners/product-form-listener.js";
 import productsListener from "./event-listeners/products-table.js";
 import { reduceAverageRating, reduceProducts, reduceSmartphonesAveragePrice, reduceTotalPrice } from "./reducers/products.js";
 import { presentAverageRating, presentNumberOfProducts, presentProductsTable, presentSmartphonesAveragePrice, presentTotalPrice } from "./ui/products.js";
 (() => __awaiter(void 0, void 0, void 0, function* () {
     // initialization
     document.getElementById('products-table-body').addEventListener('click', productsListener);
+    document.getElementById('add-product-form').addEventListener('submit', productFormListener);
     // get data
     const response = yield fetch('https://dummyjson.com/products');
     const json = yield response.json();
