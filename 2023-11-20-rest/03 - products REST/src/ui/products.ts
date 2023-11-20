@@ -13,3 +13,7 @@ export function presentTotalPrice(totalPrice: number): void {
 export function presentAverageRating(averageRating: number): void {
     document.getElementById('average-rating').innerHTML = averageRating.toString();
 }
+
+export function presentSmartphonesAveragePrice(smartphonesAveragePrice: number): void {
+    document.getElementById('smartphones-average-price').innerHTML = smartphonesAveragePrice.toString();
+}

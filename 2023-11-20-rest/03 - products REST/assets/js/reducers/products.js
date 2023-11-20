@@ -20,6 +20,10 @@ export function reduceTotalPrice(products) {
 export function reduceAverageRating(products) {
     return products.reduce((accumulator, current) => accumulator + current.rating, 0) / products.length;
 }
+export function reduceSmartphonesAveragePrice(products) {
+    const smartphones = products.filter(product => product.category === 'smartphones');
+    return smartphones.reduce((accumulator, current) => accumulator + current.price, 0) / smartphones.length;
+}
 // reducer initial value
 // 0 for + -
 // 1 for * %
