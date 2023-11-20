@@ -7,6 +7,7 @@
             <td>${cart.userId}</td>
             <td>${cart.totalProducts}</td>
             <td>${cart.totalQuantity}</td>
+            <td><button>show products</button></td>
         </tr>
     `).reduce((acc, curr) => acc + curr, '');
     document.getElementById('carts').innerHTML = html;
