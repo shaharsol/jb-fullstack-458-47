@@ -10,8 +10,8 @@ be able to create a new product
 
 import productsListener from "./event-listeners/products-table.js";
 import Product from "./interfaces/product.js";
-import { reduceProducts, reduceTotalPrice } from "./reducers/products.js";
-import { presentNumberOfProducts, presentProductsTable, presentTotalPrice } from "./ui/products.js";
+import { reduceAverageRating, reduceProducts, reduceTotalPrice } from "./reducers/products.js";
+import { presentAverageRating, presentNumberOfProducts, presentProductsTable, presentTotalPrice } from "./ui/products.js";
 
 (async () => {
     // initialization
@@ -27,14 +27,20 @@ import { presentNumberOfProducts, presentProductsTable, presentTotalPrice } from
     const products: Product[] = json.products;
 
     // prepare data for presentation
+
+    // prepare table
     const productsHtml = reduceProducts(products);
+
+    // prepare aggregations
     const numberOfRows = products.length;
     const totalPrice = reduceTotalPrice(products);
+    const averageRating = reduceAverageRating(products);
 
     // present data (UI)
     presentProductsTable(productsHtml);
     presentNumberOfProducts(numberOfRows);
     presentTotalPrice(totalPrice);
+    presentAverageRating(averageRating);
 
 })();
 

@@ -7,3 +7,6 @@ export function presentNumberOfProducts(num) {
 export function presentTotalPrice(totalPrice) {
     document.getElementById('total-price').innerHTML = totalPrice.toString();
 }
+export function presentAverageRating(averageRating) {
+    document.getElementById('average-rating').innerHTML = averageRating.toString();
+}
