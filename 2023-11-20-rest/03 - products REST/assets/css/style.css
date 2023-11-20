@@ -10,3 +10,11 @@ table,
 td {
     border: 1px dashed;
 }
+
+.aggregation-label {
+    color: blue;
+}
+
+.aggregation-data {
+    color: red;
+}

@@ -11,7 +11,7 @@ be able to create a new product
 import productsListener from "./event-listeners/products-table.js";
 import Product from "./interfaces/product.js";
 import reduceProducts from "./reducers/products.js";
-import { presentProductsTable } from "./ui/products.js";
+import { presentNumberOfProducts, presentProductsTable } from "./ui/products.js";
 
 (async () => {
     // initialization
@@ -20,14 +20,19 @@ import { presentProductsTable } from "./ui/products.js";
     // get data
     const response = await fetch('https://dummyjson.com/products');
 
-    const json = await response.json();
+    interface ProductsResponse {
+        products: Product[],
+    }
+    const json: ProductsResponse = await response.json();
     const products: Product[] = json.products;
 
     // prepare data for presentation
     const productsHtml = reduceProducts(products);
+    const numberOfRows = products.length;
 
     // present data (UI)
     presentProductsTable(productsHtml);
+    presentNumberOfProducts(numberOfRows);
 
 })();
 

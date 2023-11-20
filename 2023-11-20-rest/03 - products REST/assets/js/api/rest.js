@@ -11,6 +11,7 @@ export default function rest(method, endpoint, data) {
     return __awaiter(this, void 0, void 0, function* () {
         const options = {
             method,
+            body: JSON.stringify(data),
         };
         const response = yield fetch(endpoint, options);
         const json = yield response.json();
