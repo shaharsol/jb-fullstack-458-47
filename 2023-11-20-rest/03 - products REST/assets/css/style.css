@@ -5,3 +5,8 @@
 .green-button {
     background-color: green;
 }
+
+table,
+td {
+    border: 1px dashed;
+}
