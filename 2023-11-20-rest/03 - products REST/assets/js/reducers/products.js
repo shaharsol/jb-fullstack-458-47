@@ -8,6 +8,7 @@ export function reduceProducts(products) {
                 <td>${product.price}</td>
                 <td>${product.rating}</td>
                 <td>${product.category}</td>
+                <td>${product.brand}</td>
                 <td><button id="delete-${product.id}" class="red-button">Delete</button></td>
                 <td><button id="update-${product.id}" class="green-button">Update Description</button></td>
             </tr>

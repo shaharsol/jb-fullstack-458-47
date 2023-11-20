@@ -80,6 +80,19 @@ import { presentAverageRating, presentNumberOfProducts, presentProductsTable, pr
     })
     console.log(mappedCategories)
 
+
+    const brands = [...new Set(products.map(product => product.brand))]
+    const mappedBrands = brands.map(brand => {
+        const brandProducts = products.filter(product => product.brand === brand)
+        const brandAverageRating = reduceAverageRating(brandProducts);
+        return {
+            brand,
+            averageRating: brandAverageRating
+        }
+    })
+    console.log(mappedBrands)
+
+
     // present data (UI)
     presentProductsTable(productsHtml);
     presentNumberOfProducts(numberOfRows);

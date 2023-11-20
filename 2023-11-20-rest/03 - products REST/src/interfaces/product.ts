@@ -5,4 +5,5 @@ export default interface Product {
     price: number;
     rating: number;
     category: string;
+    brand: string;
 }
