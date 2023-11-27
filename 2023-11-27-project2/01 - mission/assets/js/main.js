@@ -7,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import reduceCoins from './reducers/coins.js';
 function getCoins() {
     return __awaiter(this, void 0, void 0, function* () {
         // const response = await fetch('https://api.coingecko.com/api/v3/coins/list');
@@ -21,6 +22,9 @@ function getCoins() {
     const coins = yield getCoins();
     // prepare data
     // cut list to 100 coins
+    const shortList = coins.slice(0, 100);
+    // reduce to create the HTML string of the cards
+    const html = reduceCoins(shortList);
     // display
+    document.getElementById('coins-container').innerHTML = html;
 }))();
-export {};
