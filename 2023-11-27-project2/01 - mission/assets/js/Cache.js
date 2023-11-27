@@ -10,10 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 export default class Cache {
     constructor() {
         this.data = [];
+        this.timeout = 1000 * 30;
     }
     getData(key) {
         return __awaiter(this, void 0, void 0, function* () {
             const existingData = this.data.find(e => e.key === key);
+            // if (existingData && moment(new Date()).subtract(existingData.when) < this.timeout ) {
             if (existingData) {
                 console.log('CACHE HIT');
                 return existingData.content;

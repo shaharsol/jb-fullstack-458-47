@@ -4,9 +4,11 @@ export default class Cache {
         content: object;
         when: Date;
     }[] = [];
+    timeout: number = 1000 * 30;
 
     async getData(key: string) {
         const existingData = this.data.find(e => e.key === key);
+        // if (existingData && moment(new Date()).subtract(existingData.when) < this.timeout ) {
         if (existingData) {
             console.log('CACHE HIT');
             return existingData.content;
