@@ -8,19 +8,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import reduceCoins from './reducers/coins.js';
+import Cache from './Cache.js';
+const cache = new Cache();
 function getCoins() {
     return __awaiter(this, void 0, void 0, function* () {
         // const response = await fetch('https://api.coingecko.com/api/v3/coins/list');
-        const response = yield fetch('coins.json');
-        const coins = yield response.json();
+        // const response = await fetch('coins.json');
+        // const coins: Coin[] = await response.json();
+        // const cacheResponse = await cache.getData('https://api.coingecko.com/api/v3/coins/list');
+        const cacheResponse = yield cache.getData('coins.json');
+        const coins = (cacheResponse);
+        console.log(coins);
         return coins;
     });
 }
 function getCoinData(coinId) {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch(`https://api.coingecko.com/api/v3/coins/${coinId}`);
-        const json = yield response.json();
-        return json;
+        const cacheResponse = yield cache.getData(`https://api.coingecko.com/api/v3/coins/${coinId}`);
+        const coinData = (cacheResponse);
+        return coinData;
     });
 }
 function coinsContainerClicked(e) {

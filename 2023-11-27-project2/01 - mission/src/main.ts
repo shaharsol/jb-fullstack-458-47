@@ -1,18 +1,26 @@
 import CoinData from './interfaces/coin-data.js';
 import Coin from './interfaces/coin.js';
 import reduceCoins from './reducers/coins.js';
+import Cache from './Cache.js';
+
+const cache = new Cache();
 
 async function getCoins(): Promise<Coin[]> {
     // const response = await fetch('https://api.coingecko.com/api/v3/coins/list');
-    const response = await fetch('coins.json');
-    const coins: Coin[] = await response.json();
+    // const response = await fetch('coins.json');
+    // const coins: Coin[] = await response.json();
+    // const cacheResponse = await cache.getData('https://api.coingecko.com/api/v3/coins/list');
+    const cacheResponse = await cache.getData('coins.json');
+    const coins: Coin[] = (cacheResponse) as Coin[]
+    console.log(coins)
+
     return coins;
 }
 
 async function getCoinData(coinId: string): Promise<CoinData> {
-    const response = await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}`);
-    const json: CoinData = await response.json();
-    return json;
+    const cacheResponse = await cache.getData(`https://api.coingecko.com/api/v3/coins/${coinId}`);
+    const coinData: CoinData = (cacheResponse) as CoinData
+    return coinData;
 }
 
 async function coinsContainerClicked(e: MouseEvent) {
