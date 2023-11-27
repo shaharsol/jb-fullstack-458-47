@@ -16,8 +16,34 @@ function getCoins() {
         return coins;
     });
 }
+function getCoinData(coinId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch(`https://api.coingecko.com/api/v3/coins/${coinId}`);
+        const json = yield response.json();
+        return json;
+    });
+}
+function coinsContainerClicked(e) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (e.target instanceof HTMLElement) {
+            const element = e.target;
+            if (element.id.startsWith('more-info-')) {
+                const coinId = element.id.substring('more-info-'.length);
+                const coinData = yield getCoinData(coinId);
+                console.log(coinData);
+                document.getElementById(`data-container-${coinId}`).innerHTML = `
+                <img src="${coinData.image.thumb}"/> <br>
+                usd: ${coinData.market_data.current_price.usd} <br>
+                eur: ${coinData.market_data.current_price.eur} <br>
+                ils: ${coinData.market_data.current_price.ils}
+            `;
+            }
+        }
+    });
+}
 (() => __awaiter(void 0, void 0, void 0, function* () {
     // init
+    document.getElementById('coins-container').addEventListener('click', coinsContainerClicked);
     // get data
     const coins = yield getCoins();
     // prepare data
