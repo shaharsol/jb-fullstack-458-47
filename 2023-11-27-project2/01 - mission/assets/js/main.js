@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import reduceCoins from './reducers/coins.js';
 import Cache from './Cache.js';
-const cache = new Cache();
+const cache = Cache.getInstance();
 function getCoins() {
     return __awaiter(this, void 0, void 0, function* () {
         // const response = await fetch('https://api.coingecko.com/api/v3/coins/list');

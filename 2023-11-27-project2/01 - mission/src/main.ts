@@ -3,7 +3,7 @@ import Coin from './interfaces/coin.js';
 import reduceCoins from './reducers/coins.js';
 import Cache from './Cache.js';
 
-const cache = new Cache();
+const cache = Cache.getInstance();
 
 async function getCoins(): Promise<Coin[]> {
     // const response = await fetch('https://api.coingecko.com/api/v3/coins/list');

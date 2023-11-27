@@ -8,6 +8,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 export default class Cache {
+    static getInstance() {
+        if (!this.instance)
+            this.instance = new Cache();
+        return this.instance;
+    }
     constructor() {
         this.data = [];
         this.timeout = 1000 * 30;

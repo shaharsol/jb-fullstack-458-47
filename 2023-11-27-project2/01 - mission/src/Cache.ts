@@ -6,8 +6,15 @@ export default class Cache {
     }[] = [];
 
     timeout: number = 1000 * 30;
+    static instance: Cache;
+    public static getInstance(): Cache {
+        if (!this.instance) this.instance = new Cache();
+        return this.instance;
+    }
 
-    async getData(key: string) {
+    private constructor() { }
+
+    public async getData(key: string) {
         const existingData = this.data.find(e => e.key === key);
         if (existingData) {
 
