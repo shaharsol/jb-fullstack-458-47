@@ -1,4 +1,10 @@
-.Kitten > div {
+.Kitten {
+    border: 1px solid;
+    display: inline-block;
+    margin: 20px;
+}
+
+.Kitten>div {
     color: green;
 }
 
