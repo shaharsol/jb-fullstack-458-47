@@ -1,9 +1,12 @@
 import Product from "../../../models/Product";
 import productsService from "../../../services/Products";
+import useTitle from "../../../utils/useTitle";
 import "./Products.css";
 import { useEffect, useState } from "react";
 
 function Products(): JSX.Element {
+
+    useTitle('Northwind products');
 
     const [products, setProducts] = useState<Product[]>([]);
 
@@ -23,6 +26,7 @@ function Products(): JSX.Element {
             .catch(error => alert(error));
 
     }, []);
+
 
     function formatPrice(price: number | undefined): string {
         return price ? `$${price.toFixed(2)}` : '';
