@@ -24,6 +24,10 @@ function Products(): JSX.Element {
 
     }, []);
 
+    function formatPrice(price: number | undefined): string {
+        return price ? `$${price.toFixed(2)}` : '';
+    }
+
     return (
         <div className="Products">
             <table>
@@ -39,7 +43,7 @@ function Products(): JSX.Element {
                     {products.map(product =>
                         <tr key={product.id}>
                             <td>{product.name}</td>
-                            <td>{product.price}</td>
+                            <td>{formatPrice(product.price)}</td>
                             <td>{product.stock}</td>
                             <td><img src={product.imageUrl} /></td>
                         </tr>
