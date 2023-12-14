@@ -28,7 +28,6 @@ function Products(): JSX.Element {
 
     }, []);
 
-
     return (
         <div className="Products">
             {products.map(p => <ProductCard key={p.id} product={p} />)}

@@ -17,6 +17,17 @@ class Products {
 
         return products;
     }
+
+    public async getOne(id: number): Promise<Product> {
+        // get a product from remote server
+        const response = await axios.get<Product>(appConfig.productsUrl + `/${id}`);
+
+        // extract the data from the response
+        const product = response.data;
+
+        return product;
+
+    }
 }
 
 // singleton

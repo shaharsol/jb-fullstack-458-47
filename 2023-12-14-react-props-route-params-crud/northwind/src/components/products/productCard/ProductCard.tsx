@@ -1,5 +1,7 @@
+import { NavLink } from "react-router-dom";
 import Product from "../../../models/Product";
 import "./ProductCard.css";
+import formatPrice from "../../../utils/formatPrice";
 
 interface ProductCardProps {
     product: Product,
@@ -7,9 +9,7 @@ interface ProductCardProps {
 
 function ProductCard(props: ProductCardProps): JSX.Element {
 
-    function formatPrice(price: number | undefined): string {
-        return price ? `$${price.toFixed(2)}` : '';
-    }
+
 
     return (
         <div className="ProductCard">
@@ -21,7 +21,9 @@ function ProductCard(props: ProductCardProps): JSX.Element {
                 stock: {props.product.stock}
             </div>
             <div>
-                <img src={props.product.imageUrl} />
+                <NavLink to={`/products/details/${props.product.id}`}>
+                    <img src={props.product.imageUrl} />
+                </NavLink>
             </div>
         </div>
     );

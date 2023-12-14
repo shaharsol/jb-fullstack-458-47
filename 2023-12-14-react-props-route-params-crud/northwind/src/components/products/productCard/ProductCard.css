@@ -13,3 +13,8 @@
 .ProductCard>div:last-child {
     margin-left: auto;
 }
+
+.ProductCard img {
+    width: 50px;
+    vertical-align: middle;
+}
