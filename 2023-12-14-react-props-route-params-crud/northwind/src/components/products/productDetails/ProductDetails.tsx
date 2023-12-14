@@ -4,6 +4,7 @@ import productsService from "../../../services/Products";
 import { useEffect, useState } from "react";
 import Product from "../../../models/Product";
 import formatPrice from "../../../utils/formatPrice";
+import { NavLink } from "react-router-dom";
 
 function ProductDetails(): JSX.Element {
 
@@ -28,6 +29,14 @@ function ProductDetails(): JSX.Element {
             <h3>Stock: {product?.stock}</h3>
 
             <img src={product?.imageUrl} />
+
+            <br /><br />
+
+            <NavLink to='/products'>back</NavLink>
+            <span> | </span>
+            <NavLink to='#'>update</NavLink>
+            <span> | </span>
+            <NavLink to='#'>delete</NavLink>
         </div>
     );
 }

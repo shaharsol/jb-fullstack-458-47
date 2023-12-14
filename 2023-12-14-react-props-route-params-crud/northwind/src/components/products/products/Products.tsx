@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Product from "../../../models/Product";
 import productsService from "../../../services/Products";
 import useTitle from "../../../utils/useTitle";
@@ -30,6 +31,9 @@ function Products(): JSX.Element {
 
     return (
         <div className="Products">
+            <br />
+            <NavLink to='/products/new'>Add Product</NavLink>
+            <br />
             {products.map(p => <ProductCard key={p.id} product={p} />)}
         </div>
     );
