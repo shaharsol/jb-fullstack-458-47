@@ -9,6 +9,9 @@ class Products {
         // get the products from remote server
         const response = await axios.get<Product[]>(appConfig.productsUrl);
 
+        // const { data } = await axios.get<Product[]>(appConfig.productsUrl);
+        // return data;
+
         // extract the data from the response
         const products = response.data;
 

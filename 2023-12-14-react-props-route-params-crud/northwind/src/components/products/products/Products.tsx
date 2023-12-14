@@ -1,6 +1,7 @@
 import Product from "../../../models/Product";
 import productsService from "../../../services/Products";
 import useTitle from "../../../utils/useTitle";
+import ProductCard from "../productCard/ProductCard";
 import "./Products.css";
 import { useEffect, useState } from "react";
 
@@ -28,32 +29,9 @@ function Products(): JSX.Element {
     }, []);
 
 
-    function formatPrice(price: number | undefined): string {
-        return price ? `$${price.toFixed(2)}` : '';
-    }
-
     return (
         <div className="Products">
-            <table>
-                <thead>
-                    <tr>
-                        <th>name</th>
-                        <th>price</th>
-                        <th>stock</th>
-                        <th>image</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {products.map(product =>
-                        <tr key={product.id}>
-                            <td>{product.name}</td>
-                            <td>{formatPrice(product.price)}</td>
-                            <td>{product.stock}</td>
-                            <td><img src={product.imageUrl} /></td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
+            {products.map(p => <ProductCard key={p.id} product={p} />)}
         </div>
     );
 }
