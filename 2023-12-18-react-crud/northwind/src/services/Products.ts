@@ -42,6 +42,12 @@ class Products {
         return addedProduct;
 
     }
+
+    public async deleteProduct(id: number): Promise<void> {
+        await axios.delete(appConfig.productsUrl + `/${id}`);
+    }
+
+
 }
 
 // singleton

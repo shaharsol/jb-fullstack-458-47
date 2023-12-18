@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./ProductDetails.css";
 import productsService from "../../../services/Products";
 import { useEffect, useState } from "react";
@@ -20,6 +20,20 @@ function ProductDetails(): JSX.Element {
 
     }, [])
 
+    const navigate = useNavigate();
+
+    async function deleteThis(): Promise<void> {
+        if (window.confirm('are you sure you want to delete this product?')) {
+            try {
+                await productsService.deleteProduct(productId);
+                alert('this product has been deleted');
+                navigate('/products');
+            } catch (err) {
+                alert(err)
+            }
+        }
+    }
+
     return (
         <div className="ProductDetails">
             <h2>Product Details</h2>
@@ -36,7 +50,7 @@ function ProductDetails(): JSX.Element {
             <span> | </span>
             <NavLink to='#'>update</NavLink>
             <span> | </span>
-            <NavLink to='#'>delete</NavLink>
+            <NavLink to='#' onClick={deleteThis}>delete</NavLink>
         </div>
     );
 }
