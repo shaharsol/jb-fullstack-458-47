@@ -10,9 +10,32 @@ function AddProduct(): JSX.Element {
 
     const navigate = useNavigate();
 
+    /*
+
+    this is a better way to model the products.
+
+    baseProduct {
+        name: string,
+        price: number
+        stock: number,
+    }
+    clientProduct extends baseProduct{
+        file: File
+    }
+
+    serverProduct extends baseProduct{
+        id: number,
+        imageUrl: string
+    }
+    
+    */
+
     async function submitProductData(product: Product) {
+        console.log(product);
         try {
+            product.image = (product.image as unknown as FileList)[0];
             const addedProduct = await productsService.addProduct(product);
+            console.log(addedProduct);
             alert(`added a new product with id ${addedProduct.id}`)
             // navigate(`/products/details/${addedProduct.id}`);
             navigate('/products');
@@ -38,7 +61,7 @@ function AddProduct(): JSX.Element {
                 <input type="number" {...register('stock')} />
 
                 <label>Image:</label>
-                <input type="file" accept="image/*" />
+                <input type="file" accept="image/*" {...register('image')} />
 
                 <button>add</button>
 

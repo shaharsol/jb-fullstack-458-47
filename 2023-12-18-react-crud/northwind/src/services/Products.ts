@@ -30,7 +30,12 @@ class Products {
     }
 
     public async addProduct(product: Product): Promise<Product> {
-        const response = await axios.post<Product>(appConfig.productsUrl, product);
+        const config = {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }
+        const response = await axios.post<Product>(appConfig.productsUrl, product, config);
 
         const addedProduct = response.data;
 
