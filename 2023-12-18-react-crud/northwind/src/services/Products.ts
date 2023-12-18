@@ -47,6 +47,19 @@ class Products {
         await axios.delete(appConfig.productsUrl + `/${id}`);
     }
 
+    public async editProduct(product: Product): Promise<Product> {
+        const config = {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }
+        const response = await axios.put<Product>(appConfig.productsUrl + `/${product.id}`, product, config);
+
+        const updatedProduct = response.data;
+
+        return updatedProduct;
+
+    }
 
 }
 

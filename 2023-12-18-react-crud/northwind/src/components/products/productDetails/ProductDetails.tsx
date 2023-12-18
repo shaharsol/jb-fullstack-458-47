@@ -48,7 +48,7 @@ function ProductDetails(): JSX.Element {
 
             <NavLink to='/products'>back</NavLink>
             <span> | </span>
-            <NavLink to='#'>update</NavLink>
+            <NavLink to={`/products/edit/${productId}`}>update</NavLink>
             <span> | </span>
             <NavLink to='#' onClick={deleteThis}>delete</NavLink>
         </div>

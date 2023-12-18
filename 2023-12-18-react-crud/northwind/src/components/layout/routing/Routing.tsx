@@ -1,6 +1,7 @@
 import About from "../../about/about/About";
 import Home from "../../home/home/Home";
 import AddProduct from "../../products/addProduct/AddProduct";
+import EditProduct from "../../products/editProduct/EditProduct";
 import ProductDetails from "../../products/productDetails/ProductDetails";
 import Products from "../../products/products/Products";
 import Page404 from "../page404/Page404";
@@ -16,6 +17,8 @@ function Routing(): JSX.Element {
             <Route path="/products/details/:productId" element={<ProductDetails />} />
 
             <Route path="/products/new" element={<AddProduct />} />
+
+            <Route path="/products/edit/:productId" element={<EditProduct />} />
 
             <Route path="/products" element={<Products />} />
 
