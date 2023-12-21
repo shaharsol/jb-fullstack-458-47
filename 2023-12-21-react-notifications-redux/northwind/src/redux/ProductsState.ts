@@ -25,9 +25,13 @@ export function productsReducer(currentState = new ProductsState(), action: Prod
     const newState = { ...currentState };
 
     // .....
-    switch(action.type) {
+    switch (action.type) {
         case ProductsActionType.SetProducts: // payload here will be an array of products: Product[]
             newState.products = action.payload;
+            break;
+        case ProductsActionType.AddProduct: // payload here will be a single product: Product
+            const singleProduct = action.payload;
+            newState.products.push(singleProduct);
             break;
 
     }

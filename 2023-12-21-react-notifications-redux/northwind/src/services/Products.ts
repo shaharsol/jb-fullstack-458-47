@@ -56,6 +56,15 @@ class Products {
 
         const addedProduct = response.data;
 
+        // create an AddProduct action for redux
+        const action: ProductsAction = {
+            type: ProductsActionType.AddProduct,
+            payload: addedProduct
+        }
+
+        // perform the action on redux
+        productsStore.dispatch(action);
+
         return addedProduct;
 
     }
