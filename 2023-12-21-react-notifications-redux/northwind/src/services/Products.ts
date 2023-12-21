@@ -1,19 +1,36 @@
 import axios from "axios";
 import Product from "../models/Product";
 import appConfig from "../utils/AppConfig";
+import { ProductsAction, ProductsActionType, productsStore } from "../redux/ProductsState";
 
 
 class Products {
 
     public async getAll(): Promise<Product[]> {
-        // get the products from remote server
-        const response = await axios.get<Product[]>(appConfig.productsUrl);
 
-        // const { data } = await axios.get<Product[]>(appConfig.productsUrl);
-        // return data;
+        // get the products from redux
+        let products = productsStore.getState().products;
 
-        // extract the data from the response
-        const products = response.data;
+        if (products.length === 0) {
+            // get the products from remote server
+            const response = await axios.get<Product[]>(appConfig.productsUrl);
+
+            // const { data } = await axios.get<Product[]>(appConfig.productsUrl);
+            // return data;
+
+            // extract the data from the response
+            products = response.data;
+
+            // create an action to set the products into the state,
+            // and set the action payload, to hold the products themselves
+            const action: ProductsAction = {
+                type: ProductsActionType.SetProducts,
+                payload: products
+            }
+
+            // now all is left to do, is to send this action to redux
+            productsStore.dispatch(action);
+        }
 
         return products;
     }
