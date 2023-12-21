@@ -33,6 +33,16 @@ export function productsReducer(currentState = new ProductsState(), action: Prod
             const singleProduct = action.payload;
             newState.products.push(singleProduct);
             break;
+        case ProductsActionType.DeleteProduct: // payload here will be product id: number
+            const productId = action.payload;
+            const indexToDelete = newState.products.findIndex(product => product.id === productId);
+            if (indexToDelete !== -1) newState.products.splice(indexToDelete, 1);
+            break;
+        case ProductsActionType.UpdateProduct: // payload here will be a single product: Product
+            const productToUpdate = action.payload;
+            const indexToUpdate = newState.products.findIndex(product => product.id === productToUpdate.id);
+            if (indexToUpdate !== -1) newState.products[indexToUpdate] = productToUpdate;
+            break;
 
     }
 

@@ -70,7 +70,18 @@ class Products {
     }
 
     public async deleteProduct(id: number): Promise<void> {
+
         await axios.delete(appConfig.productsUrl + `/${id}`);
+
+        // create a DeleteProduct action for redux
+        const action: ProductsAction = {
+            type: ProductsActionType.DeleteProduct,
+            payload: id
+        }
+
+        // perform the action on redux
+        productsStore.dispatch(action);
+
     }
 
     public async editProduct(product: Product): Promise<Product> {
@@ -83,6 +94,15 @@ class Products {
 
         const updatedProduct = response.data;
 
+        // create an UpdateProduct action for redux
+        const action: ProductsAction = {
+            type: ProductsActionType.UpdateProduct,
+            payload: updatedProduct
+        }
+
+        // perform the action on redux
+        productsStore.dispatch(action);
+        
         return updatedProduct;
 
     }

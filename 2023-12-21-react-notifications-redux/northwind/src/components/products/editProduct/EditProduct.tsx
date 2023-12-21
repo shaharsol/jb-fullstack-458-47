@@ -51,7 +51,8 @@ function EditProduct(): JSX.Element {
             const updatedProduct = await productsService.editProduct(product);
             // alert(`updated a product with id ${updatedProduct.id}`)
             notify.success(`updated a product with id ${updatedProduct.id}`)
-            navigate(`/products/details/${updatedProduct.id}`);
+            // navigate(`/products/details/${updatedProduct.id}`);
+            navigate(`/products`);
 
         } catch (err) {
             notify.error(err);
