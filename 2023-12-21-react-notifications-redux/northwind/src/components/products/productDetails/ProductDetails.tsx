@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Product from "../../../models/Product";
 import formatPrice from "../../../utils/formatPrice";
 import { NavLink } from "react-router-dom";
+import notify from "../../../services/Notify";
 
 function ProductDetails(): JSX.Element {
 
@@ -16,7 +17,7 @@ function ProductDetails(): JSX.Element {
     useEffect(() => {
         productsService.getOne(productId)
             .then(productFromServer => setProduct(productFromServer))
-            .catch(err => alert(err.message))
+            .catch(err => notify.error(err))
 
     }, [])
 
@@ -26,10 +27,10 @@ function ProductDetails(): JSX.Element {
         if (window.confirm('are you sure you want to delete this product?')) {
             try {
                 await productsService.deleteProduct(productId);
-                alert('this product has been deleted');
+                notify.success('this product has been deleted');
                 navigate('/products');
             } catch (err) {
-                alert(err)
+                notify.error(err)
             }
         }
     }

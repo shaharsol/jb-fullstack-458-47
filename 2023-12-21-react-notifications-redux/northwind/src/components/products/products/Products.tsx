@@ -5,6 +5,7 @@ import useTitle from "../../../utils/useTitle";
 import ProductCard from "../productCard/ProductCard";
 import "./Products.css";
 import { useEffect, useState } from "react";
+import notify from "../../../services/Notify";
 
 function Products(): JSX.Element {
 
@@ -25,7 +26,7 @@ function Products(): JSX.Element {
         // 2nd method, use then
         productsService.getAll()
             .then(productsFromServer => setProducts(productsFromServer))
-            .catch(error => alert(error));
+            .catch(error => notify.error(error));
 
     }, []);
 

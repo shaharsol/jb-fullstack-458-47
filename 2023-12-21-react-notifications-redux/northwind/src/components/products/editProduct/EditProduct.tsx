@@ -39,7 +39,7 @@ function EditProduct(): JSX.Element {
                 setValue('stock', productFromServer.stock);
                 setSrc(productFromServer.imageUrl || '')
             })
-            .catch(err => alert(err.message))
+            .catch(err => notify.error(err))
 
     }, [])
 
@@ -54,7 +54,7 @@ function EditProduct(): JSX.Element {
             navigate(`/products/details/${updatedProduct.id}`);
 
         } catch (err) {
-            alert(err);
+            notify.error(err);
         }
     }
 
