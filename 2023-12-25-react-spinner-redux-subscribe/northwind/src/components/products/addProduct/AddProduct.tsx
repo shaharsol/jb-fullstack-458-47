@@ -7,7 +7,7 @@ import notify from "../../../services/Notify";
 
 function AddProduct(): JSX.Element {
 
-    const { register, handleSubmit } = useForm<Product>();
+    const { register, handleSubmit, setValue } = useForm<Product>();
 
     const navigate = useNavigate();
 
@@ -41,6 +41,9 @@ function AddProduct(): JSX.Element {
             notify.success(`added a new product with id ${addedProduct.id}`);
             // navigate(`/products/details/${addedProduct.id}`);
             // navigate('/products');
+            setValue('name', '')
+            setValue('price', undefined)
+            setValue('stock', undefined)
 
         } catch (err) {
             // alert(err);

@@ -7,6 +7,7 @@ import "./Products.css";
 import { useEffect, useState } from "react";
 import notify from "../../../services/Notify";
 import Spinner from "../../common/spinner/Spinner";
+import { productsStore } from "../../../redux/ProductsState";
 
 function ProductsList(): JSX.Element {
 
@@ -28,6 +29,10 @@ function ProductsList(): JSX.Element {
         productsService.getAll()
             .then(productsFromServer => setProducts(productsFromServer))
             .catch(error => notify.error(error));
+
+        productsStore.subscribe(() => {
+            setProducts([...productsStore.getState().products])
+        })
 
     }, []);
 
