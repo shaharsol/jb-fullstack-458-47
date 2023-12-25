@@ -30,9 +30,11 @@ function ProductsList(): JSX.Element {
             .then(productsFromServer => setProducts(productsFromServer))
             .catch(error => notify.error(error));
 
-        productsStore.subscribe(() => {
+        const unsubscribe = productsStore.subscribe(() => {
             setProducts([...productsStore.getState().products])
         })
+
+        return unsubscribe;
 
     }, []);
 
