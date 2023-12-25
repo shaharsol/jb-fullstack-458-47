@@ -35,12 +35,26 @@ class Products {
         return products;
     }
 
-    public async getOne(id: number): Promise<Product> {
-        // get a product from remote server
-        const response = await axios.get<Product>(appConfig.productsUrl + `/${id}`);
+    public async getOne(id: number): Promise<Product | undefined> {
 
-        // extract the data from the response
-        const product = response.data;
+        let products = productsStore.getState().products;
+
+        let product = products.find(p => p.id === id)
+
+        if (!product) {
+
+            await this.getAll();
+
+            products = productsStore.getState().products;
+
+            product = products.find(p => p.id === id)
+
+            // // get a product from remote server
+            // const response = await axios.get<Product>(appConfig.productsUrl + `/${id}`);
+
+            // // extract the data from the response
+            // product = response.data;
+        }
 
         return product;
 
@@ -102,7 +116,7 @@ class Products {
 
         // perform the action on redux
         productsStore.dispatch(action);
-        
+
         return updatedProduct;
 
     }

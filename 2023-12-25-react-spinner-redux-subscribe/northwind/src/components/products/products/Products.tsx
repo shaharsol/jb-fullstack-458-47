@@ -6,6 +6,7 @@ import ProductCard from "../productCard/ProductCard";
 import "./Products.css";
 import { useEffect, useState } from "react";
 import notify from "../../../services/Notify";
+import Spinner from "../../common/spinner/Spinner";
 
 function Products(): JSX.Element {
 
@@ -31,11 +32,13 @@ function Products(): JSX.Element {
     }, []);
 
     return (
+
         <div className="Products">
             <br />
             <NavLink to='/products/new'>Add Product</NavLink>
             <br />
-            {products.map(p => <ProductCard key={p.id} product={p}/>)}
+            {products.length === 0 && <Spinner />}
+            {products.map(p => <ProductCard key={p.id} product={p} />)}
         </div>
     );
 }

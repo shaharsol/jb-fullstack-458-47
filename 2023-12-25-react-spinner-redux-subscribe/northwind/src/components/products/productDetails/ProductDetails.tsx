@@ -6,6 +6,7 @@ import Product from "../../../models/Product";
 import formatPrice from "../../../utils/formatPrice";
 import { NavLink } from "react-router-dom";
 import notify from "../../../services/Notify";
+import Spinner from "../../common/spinner/Spinner";
 
 function ProductDetails(): JSX.Element {
 
@@ -33,6 +34,12 @@ function ProductDetails(): JSX.Element {
                 notify.error(err)
             }
         }
+    }
+
+    if (!product) {
+        return (
+            <Spinner />
+        )
     }
 
     return (

@@ -23,21 +23,23 @@ function EditProduct(): JSX.Element {
             name: 'image',
         })
         if (imageSrc) {
-            const src = ((imageSrc as unknown as FileList)[0])
-            console.log(src)
-            return <img src={src?.name} /> // only re-render at the custom hook level, when firstName changes
+            const file = ((imageSrc as unknown as FileList)[0])
+            if (file) {
+                const newSrc = window.URL.createObjectURL(file)
+                return <img src={newSrc} />
+            }
         }
-        return <img />
+        return <img src={src} />
     }
 
 
     useEffect(() => {
         productsService.getOne(productId)
             .then(productFromServer => {
-                setValue('name', productFromServer.name);
-                setValue('price', productFromServer.price);
-                setValue('stock', productFromServer.stock);
-                setSrc(productFromServer.imageUrl || '')
+                setValue('name', productFromServer?.name);
+                setValue('price', productFromServer?.price);
+                setValue('stock', productFromServer?.stock);
+                setSrc(productFromServer?.imageUrl || '')
             })
             .catch(err => notify.error(err))
 
@@ -78,7 +80,6 @@ function EditProduct(): JSX.Element {
                 <input type="file" accept="image/*" {...register('image')} />
 
                 <ImageWatched control={control} />
-                <img src={src} />
                 <button>update</button>
 
             </form>
