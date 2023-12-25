@@ -1,0 +1,16 @@
+.AddProduct {
+    width: 250px;
+    border: 1px solid;
+    text-align: left;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 10px 10px 10px;
+    border-radius: 10px;
+}
+
+.AddProduct input,
+.AddProduct button {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
