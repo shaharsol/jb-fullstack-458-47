@@ -1,12 +1,14 @@
-/* .Products>table,
-.Products th,
-.Products td {
-    margin: auto;
-    border: 1px solid;
-    border-collapse: collapse;
+.Products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
 }
 
-.Products img {
-    width: 50px;
-    vertical-align: middle;
-} */
+.Products>div {
+    grid-column: span 4;
+    overflow: auto;
+}
+
+.Products>aside {
+    grid-column: span 1;
+    overflow: auto;
+}

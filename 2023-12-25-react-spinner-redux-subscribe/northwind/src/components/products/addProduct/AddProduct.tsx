@@ -40,7 +40,7 @@ function AddProduct(): JSX.Element {
             // alert(`added a new product with id ${addedProduct.id}`)
             notify.success(`added a new product with id ${addedProduct.id}`);
             // navigate(`/products/details/${addedProduct.id}`);
-            navigate('/products');
+            // navigate('/products');
 
         } catch (err) {
             // alert(err);
