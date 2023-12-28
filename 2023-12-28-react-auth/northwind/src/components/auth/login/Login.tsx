@@ -4,6 +4,8 @@ import notify from "../../../services/Notify";
 import "./Login.css";
 import { useForm } from "react-hook-form";
 import auth from "../../../services/Auth";
+import { useEffect } from "react";
+import { authStore } from "../../../redux/AuthState";
 
 function Login(): JSX.Element {
 
@@ -20,6 +22,14 @@ function Login(): JSX.Element {
             notify.error(err);
         }
     }
+
+    useEffect(() => {
+        const token = authStore.getState().token;
+        if (token) {
+            notify.error('You are already logged in, please don\'t login again')
+            navigate('/home');
+        }
+    })
 
     return (
         <div className="Login">

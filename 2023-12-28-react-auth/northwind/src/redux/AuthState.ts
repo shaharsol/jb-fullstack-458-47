@@ -16,9 +16,10 @@ export enum AuthActionType {
 }
 
 // 3. action
+export type AuthActionPayload = string | null;
 export interface AuthAction {
     type: AuthActionType,
-    payload: string,
+    payload: AuthActionPayload,
 }
 
 // 4. reducer
@@ -28,12 +29,13 @@ export function authReducer(currentState = new AuthState(), action: AuthAction):
     switch (action.type) {
         case AuthActionType.Signup: // payload here is the token
         case AuthActionType.Login: // payload here is the token
-            newState.token = action.payload;
+            newState.token = action.payload as string;
             localStorage.setItem('token', newState.token);
             console.log(`our jwt is ${action.payload}`)
             break;
         case AuthActionType.Logout:
-            // ...
+            newState.token = '';
+            localStorage.removeItem('token');
             break;
 
     }

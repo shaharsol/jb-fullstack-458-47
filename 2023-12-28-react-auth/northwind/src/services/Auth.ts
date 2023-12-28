@@ -38,6 +38,16 @@ class Auth {
         return token;
     }
 
+    public logout() {
+        const action: AuthAction = {
+            type: AuthActionType.Logout,
+            payload: null
+        }
+
+        // now all is left to do, is to send this action to redux
+        authStore.dispatch(action);
+    }
+
 }
 
 const auth = new Auth();
