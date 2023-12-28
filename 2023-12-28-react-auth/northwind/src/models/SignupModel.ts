@@ -1,8 +1,8 @@
-class Signup {
+import Login from "./LoginModel";
+
+class Signup extends Login {
     public firstName?: string;
     public lastName?: string;
-    public email?: string;
-    public password?: string;
 }
 
 export default Signup;

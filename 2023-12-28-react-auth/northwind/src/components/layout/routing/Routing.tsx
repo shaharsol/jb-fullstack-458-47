@@ -1,3 +1,4 @@
+import Login from "../../auth/login/Login";
 import About from "../../about/about/About";
 import Signup from "../../auth/signup/Signup";
 import Home from "../../home/home/Home";
@@ -12,6 +13,7 @@ function Routing(): JSX.Element {
         <Routes>
 
             <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
 
 
 
