@@ -1,4 +1,5 @@
 import About from "../../about/about/About";
+import Signup from "../../auth/signup/Signup";
 import Home from "../../home/home/Home";
 import AddProduct from "../../products/addProduct/AddProduct";
 import EditProduct from "../../products/editProduct/EditProduct";
@@ -9,6 +10,10 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 function Routing(): JSX.Element {
     return (
         <Routes>
+
+            <Route path="/signup" element={<Signup />} />
+
+
 
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Navigate to="/" />} />

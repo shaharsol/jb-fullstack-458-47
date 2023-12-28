@@ -1,6 +1,8 @@
 class AppConfig {
     public productsUrl = 'http://localhost:3030/api/products';
     public employeesUrl = 'http://localhost:3030/api/employees';
+    public signupUrl = 'http://localhost:3030/api/register';
+    public loginUrl = 'http://localhost:3030/api/login';
     public successNotificationDuration = 2000;
     public errorNotificationDuration = 6000;
 }
