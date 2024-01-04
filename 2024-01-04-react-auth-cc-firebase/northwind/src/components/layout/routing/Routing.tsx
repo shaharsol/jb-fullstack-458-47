@@ -8,6 +8,7 @@ import ProductDetails from "../../products/productDetails/ProductDetails";
 import Products from "../../products/products/Products";
 import Page404 from "../page404/Page404";
 import { Routes, Route, Navigate } from 'react-router-dom';
+import CategoriesList from "../../categories/list/CategoriesList";
 function Routing(): JSX.Element {
     return (
         <Routes>
@@ -29,6 +30,7 @@ function Routing(): JSX.Element {
 
             <Route path="/products" element={<Products />} />
 
+            <Route path="/categories" element={<CategoriesList />} />
 
             <Route path="/about" element={<About />} />
 

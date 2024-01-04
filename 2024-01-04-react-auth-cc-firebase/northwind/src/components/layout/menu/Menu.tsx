@@ -10,8 +10,8 @@ function Menu(): JSX.Element {
 
             <NavLink to="/home">Home</NavLink>
             <NavLink to="/products">Products</NavLink>
+            <NavLink to="/categories">Categories</NavLink>
             <NavLink to="/about">About</NavLink>
-            <NavLink to="/dennis">Dennis</NavLink>
         </div>
     );
 }
