@@ -9,6 +9,7 @@ import Products from "../../products/products/Products";
 import Page404 from "../page404/Page404";
 import { Routes, Route, Navigate } from 'react-router-dom';
 import CategoriesList from "../../categories/list/CategoriesList";
+import Details from "../../categories/details/Details";
 function Routing(): JSX.Element {
     return (
         <Routes>
@@ -23,6 +24,7 @@ function Routing(): JSX.Element {
             {/* <Route path="/home" element={<Home />} /> */}
 
             <Route path="/products/details/:productId" element={<ProductDetails />} />
+            <Route path="/categories/details/:categoryId" element={<Details />} />
 
             <Route path="/products/new" element={<AddProduct />} />
 
