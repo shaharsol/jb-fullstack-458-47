@@ -3,6 +3,7 @@ import ProductsImageSource from '../../../assets/images/products.jpg';
 import Products2ImageSource from '../../../assets/images/products2.jpg';
 import { useEffect, useState } from "react";
 import useTitle from "../../../utils/useTitle";
+import Clock from "../clock/Clock";
 
 function Home(): JSX.Element {
 
@@ -83,6 +84,10 @@ function Home(): JSX.Element {
             <hr />
             <button onClick={displayTime}>Display Time</button>
             <p>time now is: {time}</p>
+
+            <hr />
+            <p>here is a class component:</p>
+            <Clock name="Rolex" />
 
         </div>
     );
