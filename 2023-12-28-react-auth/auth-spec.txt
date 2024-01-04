@@ -1,0 +1,18 @@
+components
+	V sign up
+	V sign in
+	V [frogot password]
+	V auth component
+	categories component
+service
+	V authService
+config
+	V appConfig
+redux
+	V authStore
+Model
+	V signupModel
+	V signIn (credentials) 
+Route
+	V /signup
+	V /login
