@@ -1,4 +1,5 @@
 class AppConfig {
+    // public apiBaseUrl = 'http://localhost:3030';
     public apiBaseUrl = 'https://murmuring-ocean-69355-1c3f77a1ae50.herokuapp.com';
     public productsUrl = `${this.apiBaseUrl}/api/products`;
     public employeesUrl = `${this.apiBaseUrl}/api/employees`;
