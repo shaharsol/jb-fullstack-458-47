@@ -1,0 +1,13 @@
+{
+  "name": "quick-password-generator-shaharsol",
+  "version": "1.1.1",
+  "description": "this is a password generator",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": ["password", "generator", "security"],
+  "author": "Shahar Solomianik",
+  "license": "ISC"
+}
