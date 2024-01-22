@@ -9,6 +9,13 @@
 // more recommended: require only what you need
 const { mul, add } = require("./calc");
 
+const doSomething = () => {
+  const a = 1;
+  const b = 3;
+  const c = a * b;
+  return c;
+};
+
 const price = 100;
 const vat = 1.17;
 const absoluteVat = 17;
@@ -16,6 +23,9 @@ const total = mul(price, vat);
 const total2 = add(price, absoluteVat);
 console.log(`price including vat: ${total}`);
 console.log(`price including absolute vat: ${total2}`);
+
+const someValue = doSomething();
+console.log(`return value of doSomething is ${someValue}`);
 
 // Node.js modules
 const os = require("os"); // os : shorthand for Operating System
