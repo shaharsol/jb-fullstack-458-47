@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { promisify } from 'util'
+import fsPromises from 'fs/promises';
 
 // 3 ways to implement file system operations:
 // 1. sync
@@ -37,12 +38,43 @@ fs.writeFile('./data2.txt', 'hello async file system', (err) => {
     })
 })
 
+// an example how to use promisify on an unbounded function
+// unbounded function - function that was extracted out of its context
+class MyClass {
+    someVal: number = 6;
+    public someFunc (err: any)  {
+        console.log(this.someVal)
+    }
+}
+const myObj = new MyClass();
+const newFunc = promisify(myObj.someFunc).bind(myObj)
+newFunc();
+
+
 // 3. promises
+// promisify works in 2 conditions
+// 1. that the callback function gets the error as the 1st param
+// 2. that the function is not unbounded
 const writeFilePromise = promisify(fs.writeFile);
 const readFilePromise = promisify(fs.readFile);
 
 (async () => {
-    await writeFilePromise('./data3.txt', 'hello from promisified function')
-    const data = await readFilePromise('./data3.txt', 'utf-8')
-    console.log(`promisified data is ${data}`)
+    try {
+        await writeFilePromise('./data3.txt', 'hello from promisified function')
+        const data = await readFilePromise('./data3.txt', 'utf-8')
+        console.log(`promisified data is ${data}`)
+    } catch (err) {
+        console.error(err);
+    }
+})();
+
+
+(async () => {
+    try {
+        await fsPromises.writeFile('./data4.txt', 'hello from fsPromises')
+        const data = await fsPromises.readFile('./data4.txt', 'utf-8')
+        console.log(`promisified data is ${data}`)
+    } catch (err) {
+        console.error(err);
+    }
 })();
