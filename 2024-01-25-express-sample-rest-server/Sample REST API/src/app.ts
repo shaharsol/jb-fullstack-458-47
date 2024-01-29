@@ -21,8 +21,14 @@ server.get('*', (req: Request, res: Response, next: NextFunction) => {
     next();
 })
 
+
 server.get('/api/products', (req: Request, res: Response, next: NextFunction) => {
     res.json(products)
+});
+
+server.get('/api/products', (req: Request, res: Response, next: NextFunction) => {
+    console.log('/api/products has been called')
+    next();
 });
 
 server.get('/api/products/:id', (req: Request, res: Response, next: NextFunction) => {
@@ -38,16 +44,59 @@ server.post('/api/products', (req: Request, res: Response, next: NextFunction) =
     res.json(product);
 })
 
+
 server.put('/api/products/:id', (req: Request, res: Response, next: NextFunction) => {
-    const index = products.findIndex(p => p.id === req.params.id);
-    
-    const id = {
-        id: req.params.id
+    /*
+    original product:
+    {
+        id: 1,
+        name: 'chai',
+        price: 6
     }
-
-    products[index] = {...id, ...req.body};
-
+    req.body:
+    {
+        name: 'coffee'
+    }
+    {id: req.params.id, ...req.body} : 
+    {
+        id: 1,
+        name: 'coffee'
+    }
+    */
+    const index = products.findIndex(p => p.id === req.params.id);
+    products[index] = {id: req.params.id, ...req.body};
     res.json(products[index]);
+})
+
+server.patch('/api/products/:id', (req: Request, res: Response, next: NextFunction) => {
+    /*
+    original product:
+    {
+        id: 1,
+        name: 'chai',
+        price: 6
+    }
+    req.body:
+    {
+        name: 'coffee'
+    }
+    {...products[index], ...req.body} : 
+    {
+        id: 1,
+        name: 'coffee',
+        price: 6
+    }
+    */
+    const index = products.findIndex(p => p.id === req.params.id);
+    const newVersionOfProduct = {...products[index], ...req.body}
+    products[index] = newVersionOfProduct;
+    res.json(products[index]);
+})
+
+server.delete('/api/products/:id', (req: Request, res: Response, next: NextFunction) => {
+    const index = products.findIndex(p => p.id === req.params.id);
+    products.splice(index, 1);
+    res.sendStatus(204);
 })
 
 // middlewares end here
