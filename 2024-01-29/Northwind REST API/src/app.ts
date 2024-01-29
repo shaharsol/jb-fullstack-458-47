@@ -5,6 +5,7 @@ import productsRouter from './routers/products';
 import config from 'config';
 
 const server = express();
+server.use(express.json());
 
 server.use('/api/products', productsRouter)
 
