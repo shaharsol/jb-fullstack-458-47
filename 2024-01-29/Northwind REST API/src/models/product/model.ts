@@ -5,4 +5,5 @@ export default interface Model {
     getOne(id: number): Promise<DTO>;
     add(product: DTO): Promise<DTO>;
     update(product: DTO): Promise<DTO>;
+    delete(id: number): Promise<void>;
 }

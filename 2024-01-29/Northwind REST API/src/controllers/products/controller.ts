@@ -30,3 +30,8 @@ export const patch = async (req: Request, res: Response, next: NextFunction) => 
     const product = await getModel().update(updatedProduct);
     res.json(product);
 }
+
+export const remove = async (req: Request, res: Response, next: NextFunction) => {
+    await getModel().delete(+req.params.id)
+    res.sendStatus(204)
+}

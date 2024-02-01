@@ -49,6 +49,14 @@ class Product implements Model {
         return this.getOne(id);
     }
 
+    public async delete(id: number): Promise<void> {
+        await query(`
+            DELETE FROM products
+            WHERE       ProductID = ?
+        `, [id]);
+        return;
+    }
+
 }
 
 const product = new Product();
