@@ -5,10 +5,10 @@
     },
     "mysql": {
         "host": "localhost",
-        "user": "root",
-        "password": "",
-        "port": 3306,
+        "user": "shaharsol",
+        "password": "password",
         "database": "northwind",
+        "port": 3306,
         "connectionLimit": 10
     }
 }

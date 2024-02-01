@@ -17,7 +17,7 @@ class Product implements Model {
 
     public async getOne(id: number): Promise<DTO> {
         // id = '"3"; drop table users;'
-        const product = await query(`
+        const products = await query(`
             SELECT  ProductID AS id,
                     ProductName AS name,
                     UnitPrice AS price,
@@ -25,7 +25,7 @@ class Product implements Model {
             FROM    products  
             WHERE   ProductID = ?
         `, [id]);
-        return product;
+        return products[0];
     }
 
     public async add(product: DTO): Promise<DTO> {
