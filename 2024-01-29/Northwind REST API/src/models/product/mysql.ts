@@ -37,6 +37,18 @@ class Product implements Model {
         return this.getOne(result.insertId);
     }
 
+    public async update(product: DTO): Promise<DTO> {
+        const {id, name, price, stock} = product;
+        await query(`
+            UPDATE  products
+            SET     ProductName = ?, 
+                    UnitPrice = ?,
+                    UnitsInStock = ?
+            WHERE   ProductID = ?
+        `, [name, price, stock, id]);
+        return this.getOne(id);
+    }
+
 }
 
 const product = new Product();
