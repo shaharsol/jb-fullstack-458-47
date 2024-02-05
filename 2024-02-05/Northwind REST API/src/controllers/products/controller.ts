@@ -25,7 +25,7 @@ export const getOne = async (req: Request, res: Response, next: NextFunction) =>
 export const add = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const product = await getModel().add(req.body);
-        res.json(product);
+        res.status(StatusCodes.CREATED).json(product);
     } catch (err) {
         next(err)
     }

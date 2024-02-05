@@ -1,9 +1,11 @@
 import { NextFunction, Request, Response } from "express";
+import createHttpError, { BadRequest, InternalServerError } from "http-errors";
 import Joi from "joi";
 
 const validate = (validator: Joi.ObjectSchema) => async (req: Request, res: Response, next: NextFunction) => {
+    // the sync way to use joi:
     // const [error, data] = validator.validate
-    // if(error)
+    // if(error) blah blah blah
     try {
         /*
         req.body is {
@@ -12,7 +14,9 @@ const validate = (validator: Joi.ObjectSchema) => async (req: Request, res: Resp
             "stock": 100
         }
         */
-        const validated = await validator.validateAsync(req.body) // throw new JoiError
+        const validated = await validator.validateAsync(req.body, {
+            abortEarly: false
+        }) // throw new JoiError
         /*
         validated = 
         {
@@ -25,9 +29,9 @@ const validate = (validator: Joi.ObjectSchema) => async (req: Request, res: Resp
         return next();
     } catch (err) {
         if(err.isJoi) { // isJoi is a boolean value set to true that joi adds
-            return next(401)
+            return next(createHttpError(BadRequest(err.message)))
         }
-        return next(err)
+        return next(createHttpError(InternalServerError(err)))
     }
 }
 
