@@ -49,12 +49,12 @@ class Product implements Model {
         return this.getOne(id);
     }
 
-    public async delete(id: number): Promise<void> {
-        await query(`
+    public async delete(id: number): Promise<boolean> {
+        const result: OkPacketParams = await query(`
             DELETE FROM products
             WHERE       ProductID = ?
         `, [id]);
-        return;
+        return Boolean(result.affectedRows) ;
     }
 
 }

@@ -7,10 +7,10 @@ const router = Router();
 
 // router.get('/', getAll) = router.use('GET','/',getAll)
 router.get('/', getAll)
-router.get('/:id', getOne)
+router.get('/:id([0-9]+)', getOne)
 router.post('/', validate(addProductValidator) , add)
-router.put('/:id', validate(putProductValidator) ,update)
-router.patch('/:id', validate(patchProductValidator), patch)
-router.delete('/:id', remove)
+router.put('/:id([0-9]+)', validate(putProductValidator) ,update)
+router.patch('/:id([0-9]+)', validate(patchProductValidator), patch)
+router.delete('/:id([0-9]+)', remove)
 
 export default router;
