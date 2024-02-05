@@ -1,7 +1,8 @@
 {
     "app": {
         "name": "northwind",
-        "port": 8080
+        "port": 8080,
+        "secret": "MyBloodyValentine"
     },
     "mysql": {
         "host": "localhost",
