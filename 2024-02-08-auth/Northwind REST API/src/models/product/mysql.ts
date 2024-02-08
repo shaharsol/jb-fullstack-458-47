@@ -16,7 +16,7 @@ class Product implements Model {
     }
 
     public async getOne(id: number): Promise<DTO> {
-        // id = '"3"; drop table users;'
+        // id = '"3"; drop table users;' 
         const products = await query(`
             SELECT  ProductID AS id,
                     ProductName AS name,
