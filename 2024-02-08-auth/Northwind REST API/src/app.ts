@@ -1,6 +1,7 @@
 process.env['NODE_CONFIG_DIR'] = __dirname + '/config/';
 
 import express from "express";
+import authRouter from './routers/auth';
 import productsRouter from './routers/products';
 import config from 'config';
 import { notFound } from "./middlewares/not-found";
@@ -11,6 +12,7 @@ import { pagerDuty } from "./middlewares/pager-duty";
 const server = express();
 server.use(express.json());
 
+server.use('/api', authRouter)
 server.use('/api/products', productsRouter)
 
 // special middleware for not found error

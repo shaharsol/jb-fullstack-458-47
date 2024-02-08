@@ -2,7 +2,11 @@
     "app": {
         "name": "northwind",
         "port": 8080,
-        "secret": "MyBloodyValentine"
+        "secret": "MyBloodyValentine",
+        "jwt": {
+            "expires": "3h",
+            "secret": "LinkinPark"
+        }
     },
     "mysql": {
         "host": "localhost",

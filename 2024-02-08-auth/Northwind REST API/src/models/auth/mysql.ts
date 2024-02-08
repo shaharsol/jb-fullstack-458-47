@@ -3,29 +3,36 @@ import CredentialsDTO from './credentials-dto';
 import UserDTO, { Roles } from './user-dto';
 import { OkPacketParams } from "mysql2";
 import query from "../../db/mysql";
-import { createHash } from 'crypto';
 import config from "config";
+import { hashPassword } from "../../utils/crypto";
 
 class User implements Model {
 
-    // user enters '123456' as password
-    // we salt it with another string 'sdghfgsdhfs'
-    // we want to save in the database something like 'dfjsdhfsdjhfjksdhfkjsdhfk'
-    private hashPassword(plainTextPassword: string): string {
-        return createHash('md5')
-                .update(`${plainTextPassword}${config.get<string>('app.secret')}`) // <= salting the password
-                .digest('hex'); // export has hexa
+    private async getOne(id: number): Promise<UserDTO> {
+        // id = '"3"; drop table users;' 
+        const user = (await query(`
+            SELECT  userId AS id,
+                    username,
+                    password,
+                    firstName,
+                    lastName,
+                    roleId
+            FROM    users  
+            WHERE   userId = ?
+        `, [id]))[0];
+        return user;
     }
 
-    public async login(credentials: CredentialsDTO): Promise<UserDTO> {
+    // public async login(credentials: CredentialsDTO): Promise<UserDTO> {
 
-    }
+    // }
+
     public async signup(user: UserDTO): Promise<UserDTO> {
         const { firstName, lastName, username, password } = user;
         const result: OkPacketParams = await query(`
             INSERT INTO users(firstName, lastName, username, password, roleId) 
             VALUES(?,?,?,?,?) 
-        `, [firstName, lastName, username, this.hashPassword(password), Roles.USER]);
+        `, [firstName, lastName, username, hashPassword(password, config.get<string>('app.secret')), Roles.USER]);
         return this.getOne(result.insertId);
     }
 }

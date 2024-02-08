@@ -15,6 +15,7 @@
     "@types/http-errors": "^2.0.4",
     "@types/http-status-codes": "^1.2.0",
     "@types/joi": "^17.2.3",
+    "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^20.11.5",
     "ts-node": "^10.9.2"
   },
@@ -24,6 +25,7 @@
     "http-errors": "^2.0.0",
     "http-status-codes": "^2.3.0",
     "joi": "^17.12.1",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.9.1"
   }
 }

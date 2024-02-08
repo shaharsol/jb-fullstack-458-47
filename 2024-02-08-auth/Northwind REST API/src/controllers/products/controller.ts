@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import getModel from "../../models/product/factory"
-import { StatusCodes } from 'http-status-codes';
-import createHttpError from "http-errors";
+import { StatusCodes, ReasonPhrases } from 'http-status-codes';
+import createHttpError, { NotFound } from "http-errors";
 
 export const getAll = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -59,7 +59,7 @@ export const patch = async (req: Request, res: Response, next: NextFunction) => 
 export const remove = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const isDeleted = await getModel().delete(+req.params.id)
-        if(!isDeleted) return next();
+        if(!isDeleted) return next(createHttpError(NotFound(`tried to delete unexisting product with id ${req.params.id}`)));
         res.sendStatus(StatusCodes.NO_CONTENT)
     } catch (err) {
         next(err)
