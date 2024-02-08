@@ -3,6 +3,7 @@ process.env['NODE_CONFIG_DIR'] = __dirname + '/config/';
 import express from "express";
 import authRouter from './routers/auth';
 import productsRouter from './routers/products';
+import categoriesRouter from './routers/categories';
 import config from 'config';
 import { notFound } from "./middlewares/not-found";
 import { errorHandler } from "./middlewares/error-handler";
@@ -14,6 +15,7 @@ server.use(express.json());
 
 server.use('/api', authRouter)
 server.use('/api/products', productsRouter)
+server.use('/api/categories', categoriesRouter)
 
 // special middleware for not found error
 server.use(notFound)
