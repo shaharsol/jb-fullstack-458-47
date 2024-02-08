@@ -23,9 +23,21 @@ class User implements Model {
         return user;
     }
 
-    // public async login(credentials: CredentialsDTO): Promise<UserDTO> {
-
-    // }
+    public async login(credentials: CredentialsDTO): Promise<UserDTO> {
+        const { username, password } = credentials;
+        const user = (await query(`
+            SELECT  userId AS id,
+                    username,
+                    password,
+                    firstName,
+                    lastName,
+                    roleId
+            FROM    users  
+            WHERE   username = ?
+            AND     password = ?
+        `,[ username, hashPassword(password, config.get<string>('app.secret'))]))[0];
+        return user;
+    }
 
     public async signup(user: UserDTO): Promise<UserDTO> {
         const { firstName, lastName, username, password } = user;
