@@ -9,8 +9,12 @@ import { notFound } from "./middlewares/not-found";
 import { errorHandler } from "./middlewares/error-handler";
 import { errorLogger } from "./middlewares/error-logger";
 import { pagerDuty } from "./middlewares/pager-duty";
+import authentication from "./middlewares/authentication";
+import userLogger from "./middlewares/user-logger";
 
 const server = express();
+server.use(authentication);
+server.use(userLogger);
 server.use(express.json());
 
 server.use('/api', authRouter)
