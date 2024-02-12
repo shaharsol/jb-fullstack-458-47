@@ -17,7 +17,7 @@ export const getOne = async (req: Request, res: Response, next: NextFunction) =>
     try {
         const product = await getModel().getOne(+req.params.id);
         if (!product) return next();
-        res.json(product);
+        res.json({...product, image: 'https://www.budgetbytes.com/wp-content/uploads/2021/09/Honey-Sriracha-Tofu-close.jpg'});
     } catch (err) {
         next(err)
     }
