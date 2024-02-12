@@ -5,5 +5,6 @@ export default interface DTO {
     name: string,
     price: number,
     stock: number,
-    image: UploadedFile
+    image: UploadedFile,
+    imageName: string,
 }
