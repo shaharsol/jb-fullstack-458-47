@@ -8,7 +8,7 @@ import { hashPassword } from "../../utils/crypto";
 
 class User implements Model {
 
-    private async getOne(id: number): Promise<UserDTO> {
+    public async getOne(id: number): Promise<UserDTO> {
         // id = '"3"; drop table users;' 
         const user = (await query(`
             SELECT  userId AS id,
