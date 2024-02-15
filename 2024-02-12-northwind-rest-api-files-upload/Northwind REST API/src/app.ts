@@ -10,10 +10,11 @@ import { notFound } from "./middlewares/not-found";
 import { errorHandler } from "./middlewares/error-handler";
 import { errorLogger } from "./middlewares/error-logger";
 import { pagerDuty } from "./middlewares/pager-duty";
-import authentication from "./middlewares/authentication";
 import userLogger from "./middlewares/user-logger";
+import authentication from "./middlewares/authentication";
 import enforceAuth from "./middlewares/enforce-auth";
 import expressFileUpload from 'express-fileupload';
+import path from 'path';
 
 const server = express();
 server.use(authentication);
@@ -25,7 +26,7 @@ server.use('/api', authRouter)
 server.use('/api/products', productsRouter)
 server.use('/api/categories', categoriesRouter)
 // server.use('/images', imagesRouter)
-server.use('/images', express.static('src/assets/images'))
+server.use('/images', express.static(path.resolve(config.get<string>('app.images.path'))))
 server.use('/css', express.static('src/assets/css'))
 
 // special middleware for not found error

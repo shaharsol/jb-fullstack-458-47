@@ -6,6 +6,9 @@
         "jwt": {
             "expires": "3h",
             "secret": "LinkinPark"
+        },
+        "images": {
+            "path": "C:\\northwind-images"
         }
     },
     "mysql": {
