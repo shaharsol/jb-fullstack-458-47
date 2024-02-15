@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import getModel from "../../models/product/factory"
 import { StatusCodes, ReasonPhrases } from 'http-status-codes';
 import createHttpError, { NotFound } from "http-errors";
+import config from 'config';
 
 export const getAll = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -26,7 +27,12 @@ export const getOne = async (req: Request, res: Response, next: NextFunction) =>
 export const add = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const product = await getModel().add(req.body);
-        res.status(StatusCodes.CREATED).json(product);
+        const productWithImageUrl = {
+            ...product,
+            imageUrl: `${config.get<string>('app.protocol')}://${config.get<string>('app.host')}:${config.get<number>('app.port')}/images/${product.imageName}`
+        }
+        delete productWithImageUrl.imageName
+        res.status(StatusCodes.CREATED).json(productWithImageUrl);
     } catch (err) {
         next(err)
     }

@@ -2,6 +2,8 @@
     "app": {
         "name": "northwind",
         "port": 8080,
+        "protocol": "http",
+        "host": "localhost",
         "secret": "MyBloodyValentine",
         "jwt": {
             "expires": "3h",
