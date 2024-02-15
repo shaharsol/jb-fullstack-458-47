@@ -18,7 +18,7 @@ export const getAll = async (req: Request, res: Response, next: NextFunction) =>
     try {
         // throw new Error('custom error')
         const products = await getModel().getAll();
-        res.json(products);
+        res.json(products.map(convertProductToImageUrl));
     } catch (err) {
         next(err);
     }
