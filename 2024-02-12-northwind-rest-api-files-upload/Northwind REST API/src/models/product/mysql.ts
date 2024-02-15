@@ -40,14 +40,15 @@ class Product implements Model {
     }
 
     public async update(product: DTO): Promise<DTO> {
-        const {id, name, price, stock} = product;
+        const {id, name, price, stock, imageName} = product;
         await query(`
             UPDATE  products
             SET     ProductName = ?, 
                     UnitPrice = ?,
-                    UnitsInStock = ?
+                    UnitsInStock = ?,
+                    ImageName = ?
             WHERE   ProductID = ?
-        `, [name, price, stock, id]);
+        `, [name, price, stock, imageName, id ]);
         return this.getOne(id);
     }
 

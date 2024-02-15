@@ -12,8 +12,8 @@ const router = Router();
 router.get('/', getAll)
 router.get('/:id([0-9]+)', getOne)
 router.post('/', addImageToBody, validate(addProductValidator) ,uploadImage ,add)
-router.put('/:id([0-9]+)', validate(putProductValidator) ,update)
-router.patch('/:id([0-9]+)', validate(patchProductValidator), patch)
+router.put('/:id([0-9]+)', addImageToBody, validate(putProductValidator), uploadImage ,update)
+router.patch('/:id([0-9]+)', addImageToBody, validate(patchProductValidator), uploadImage, patch)
 router.delete('/:id([0-9]+)', enforceAdmin ,remove)
 
 export default router;
