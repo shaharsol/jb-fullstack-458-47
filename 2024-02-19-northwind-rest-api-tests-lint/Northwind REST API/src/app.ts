@@ -1,6 +1,6 @@
 process.env['NODE_CONFIG_DIR'] = __dirname + '/config/';
 
-import express from "express";
+import express, { application } from "express";
 import authRouter from './routers/auth';
 import productsRouter from './routers/products';
 import categoriesRouter from './routers/categories';
@@ -37,6 +37,4 @@ server.use(errorLogger)
 server.use(pagerDuty)
 server.use(errorHandler)
 
-server.listen(config.get<number>('app.port'), () => {
-    console.log(`${config.get<string>('app.name')} is running on localhost:${config.get<number>('app.port')}`)
-})
+export default server;

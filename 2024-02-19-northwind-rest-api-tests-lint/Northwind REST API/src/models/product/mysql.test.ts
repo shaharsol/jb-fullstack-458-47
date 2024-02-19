@@ -3,6 +3,7 @@ process.env['NODE_CONFIG_DIR'] = path.resolve(__dirname, '../../config/');
 import product from "./mysql"
 import query from '../../db/mysql'
 import { v4 } from 'uuid';
+import { before } from 'node:test';
 
 jest.mock('../../db/mysql', () => ({
     ...jest.requireActual('../../db/mysql'),
@@ -10,8 +11,11 @@ jest.mock('../../db/mysql', () => ({
     default: jest.fn()
 }))
 
-
 describe('test products mysql implementation', () => {
+    afterAll(() => {
+        jest.clearAllMocks();
+    })
+
     describe('test getOne', () => {
         test('if it gets an id=1, it should return a product with id=1', async () => {
             const id = 1;

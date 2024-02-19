@@ -2,7 +2,7 @@ import mysql from 'mysql2';
 import { promisify } from 'util';
 import config from 'config';
 
-const pool = mysql.createPool({
+export const pool = mysql.createPool({
     connectionLimit: config.get<number>('mysql.connectionLimit'),
     host: config.get<string>('mysql.host'),
     user: config.get<string>('mysql.user'),
