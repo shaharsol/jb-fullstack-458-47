@@ -17,4 +17,15 @@ describe('addImageToBody middleware unit tests', () => {
         expect(req.body).toHaveProperty('image')
         expect(req.body.image).toEqual(req.files.image)
     })
+    test('does not adds image to body if no image in files', () => {
+        const req = {
+            body: {
+            }
+        } as unknown as Request;
+        const res = {} as Response;
+        const next = (() => {}) as NextFunction
+        addImageToBody(req, res, next);
+        expect(req.body).toHaveProperty('image')
+        expect(req.body.image).not.toBeDefined
+    })
 })
