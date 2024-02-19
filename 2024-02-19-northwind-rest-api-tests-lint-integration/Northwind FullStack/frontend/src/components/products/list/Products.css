@@ -1,0 +1,12 @@
+/* .Products>table,
+.Products th,
+.Products td {
+    margin: auto;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.Products img {
+    width: 50px;
+    vertical-align: middle;
+} */
