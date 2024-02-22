@@ -1,0 +1,14 @@
+.Products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.Products>div {
+    grid-column: span 4;
+    overflow: auto;
+}
+
+.Products>aside {
+    grid-column: span 1;
+    overflow: auto;
+}
