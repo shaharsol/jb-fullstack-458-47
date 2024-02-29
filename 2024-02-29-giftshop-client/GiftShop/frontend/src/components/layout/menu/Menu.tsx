@@ -12,7 +12,7 @@ function Menu(): JSX.Element {
             <a href="/about">About</a> */}
 
             <NavLink to="/home">Home</NavLink>
-            <NavLink to="/products">Products</NavLink>
+            <NavLink to="/gifts">Gifts</NavLink>
             {isUserLoggedIn && <NavLink to="/categories">Categories</NavLink>}
             <NavLink to="/about">About</NavLink>
         </div>
