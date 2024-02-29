@@ -1,7 +1,7 @@
 {
     "app": {
         "name": "gift-shop",
-        "port": 8082
+        "port": 8083
     },
     "mysql": {
         "host": "localhost",

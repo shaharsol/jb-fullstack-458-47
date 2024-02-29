@@ -49,6 +49,14 @@ class Gift implements Model {
         return this.getOne(result.insertId);
     }
 
+    public async delete(id: number): Promise<boolean> {
+        const result: OkPacketParams = await query(`
+            DELETE FROM gifts
+            WHERE id = ?
+        `, [id]);
+        return result.affectedRows !== 0;
+    }
+
 }
 
 const gift = new Gift();

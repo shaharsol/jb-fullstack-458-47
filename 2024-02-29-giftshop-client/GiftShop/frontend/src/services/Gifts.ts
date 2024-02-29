@@ -17,6 +17,11 @@ class Gifts {
         return addedGift;
     }
 
+    public async remove(id: number): Promise<void> {
+        console.log(id)
+        await axios.delete(`${appConfig.giftsUrl}/${id}`);
+    }
+
 
 }
 

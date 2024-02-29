@@ -10,6 +10,7 @@ function Gifts(): JSX.Element {
 
     const [audiences, setAudiences] = useState<Audience[]>([]);
     const [gifts, setGifts] = useState<Gift[]>([]);
+    const [currentAudience, setCurrentAudience] =useState<number>(0);
 
     useEffect(() => {
         audiencesService.getAll()
@@ -20,12 +21,25 @@ function Gifts(): JSX.Element {
     async function displayGifts(args: ChangeEvent<HTMLSelectElement>) {
         try {
             const audienceId = +args.target.value;
+            setCurrentAudience(audienceId);
             const gifts = await giftsService.getByAudience(audienceId);
             setGifts(gifts);
         } catch (err) {
             notify.error(err)
         }
     }
+
+    async function deleteGift(id: number | undefined) {
+        if (!id) return;
+        try {
+            await giftsService.remove(id);
+            const gifts = await giftsService.getByAudience(currentAudience);
+            setGifts(gifts);
+        } catch (err) {
+            notify.error(err)
+        }
+    }
+
 
     return (
         <div className="Gifts">
@@ -44,6 +58,7 @@ function Gifts(): JSX.Element {
                         <th>description</th>
                         <th>discount</th>
                         <th>price</th>
+                        <th>delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,6 +67,7 @@ function Gifts(): JSX.Element {
                         <td>{gift.description}</td>
                         <td>{gift.discount}</td>
                         <td>{gift.price}</td>
+                        <td><button onClick={() => deleteGift(gift.id)}>delete</button></td>
                     </tr>)}
                 </tbody>
             </table>

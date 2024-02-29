@@ -1,5 +1,5 @@
 class AppConfig {
-    public baseUrl = 'http://localhost:8082/api';
+    public baseUrl = 'http://localhost:8083/api';
     public audienceUrl = `${this.baseUrl}/audiences`;
     public giftsUrl = `${this.baseUrl}/gifts`;
     public giftsByAudienceUrl = `${this.baseUrl}/gifts/audience`;

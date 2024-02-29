@@ -19,3 +19,13 @@ export const add = async (req: Request, res: Response, next: NextFunction) => {
         next(err)
     }
 }
+
+export const remove = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const isDeleted = await getModel().delete(+req.params.id);
+        if (isDeleted) return res.sendStatus(StatusCodes.NO_CONTENT);
+        res.status(StatusCodes.NOT_FOUND).json({success: false})
+    } catch (err) {
+        next(err)
+    }
+}
