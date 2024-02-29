@@ -1,0 +1,21 @@
+{
+    "app": {
+        "name": "lorem-ipsum",
+        "port": 8080,
+        "protocol": "http",
+        "host": "localhost",
+        "secret": "lorem-ipsum-secret",
+        "jwt": {
+            "expires": "3h",
+            "secret": "lorem-ipsum-secret"
+        }
+    },
+    "mysql": {
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "database": "lorem-ipsum",
+        "port": 3306,
+        "connectionLimit": 10
+    }
+}

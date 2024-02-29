@@ -1,0 +1,14 @@
+{
+    "app": {
+        "name": "gift-shop",
+        "port": 8082
+    },
+    "mysql": {
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "database": "giftshop",
+        "port": 3306,
+        "connectionLimit": 10
+    }
+}
