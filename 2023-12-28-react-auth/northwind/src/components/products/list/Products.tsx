@@ -38,11 +38,17 @@ function ProductsList(): JSX.Element {
 
     }, []);
 
+    function deleteCard(productId: number) {
+        // await service.delete()
+        // const products = await service.getAll()
+        // setProducts(products)
+    }
+
     return (
 
         <div className="ProductsList">
             {products.length === 0 && <Spinner />}
-            {products.map(p => <ProductCard key={p.id} product={p} />)}
+            {products.map(p => <ProductCard key={p.id} product={p} deleteFunction={deleteCard} />)}
         </div>
     );
 }

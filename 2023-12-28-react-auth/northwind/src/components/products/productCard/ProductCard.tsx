@@ -5,9 +5,15 @@ import formatPrice from "../../../utils/formatPrice";
 
 interface ProductCardProps {
     product: Product,
+    deleteFunction: (productId: number) => void
 }
 
 function ProductCard(props: ProductCardProps): JSX.Element {
+
+    function deleteMe() {
+        if (!props.product.id) return;
+        props.deleteFunction(props.product.id)
+    }    
 
     return (
         <div className="ProductCard">
@@ -23,6 +29,7 @@ function ProductCard(props: ProductCardProps): JSX.Element {
                     <img src={props.product.imageUrl} />
                 </NavLink>
             </div>
+            <button onClick={deleteMe}>delete</button>
         </div>
     );
 }

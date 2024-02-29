@@ -6,12 +6,15 @@ import appConfig from "../utils/AppConfig";
 class Gifts {
 
     public async getByAudience(audienceId: number): Promise<Gift[]> {
-
         const response = await axios.get<Gift[]>(`${appConfig.giftsByAudienceUrl}/${audienceId}`);
-
         const gifts = response.data;
-
         return gifts;
+    }
+
+    public async add(gift: Gift): Promise<Gift> {
+        const response = await axios.post<Gift>(appConfig.giftsUrl, gift);
+        const addedGift = response.data;
+        return addedGift;
     }
 
 
