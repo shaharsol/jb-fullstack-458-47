@@ -6,8 +6,8 @@ function Menu(): JSX.Element {
     return (
         <div className="Menu">
             <NavLink to="/home">Home</NavLink>
-            <NavLink to="/lorem-ipsums">LoremIposums</NavLink>
-            <NavLink to="/lorem-ipsums/add">Add LoremIposum</NavLink>
+            <NavLink to="/games">Games</NavLink>
+            <NavLink to="/games/add">Add Game</NavLink>
             <NavLink to="/about">About</NavLink>
         </div>
     );

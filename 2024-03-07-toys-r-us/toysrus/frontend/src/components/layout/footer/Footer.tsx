@@ -3,7 +3,7 @@ import "./Footer.css";
 function Footer(): JSX.Element {
     return (
         <div className="Footer">
-            <p>All rights reserved, Northwind LLC</p>
+            <p>All rights reserved, Toysrus LLC</p>
         </div>
     );
 }

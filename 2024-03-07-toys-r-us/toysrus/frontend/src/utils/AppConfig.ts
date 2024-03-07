@@ -1,6 +1,7 @@
 class AppConfig {
-    public baseUrl = 'http://localhost:8082/api';
-    public loremIpsumUrl = `${this.baseUrl}/lorem-ipsum`;
+    public baseUrl = 'http://localhost:8080/api';
+    public audienceUrl = `${this.baseUrl}/audiences`;
+    public gamesUrl = `${this.baseUrl}/games`;
     public successNotificationDuration = 2000;
     public errorNotificationDuration = 6000;
 }
