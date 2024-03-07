@@ -1,0 +1,21 @@
+{
+    "app": {
+        "name": "toysrus",
+        "port": 8080,
+        "protocol": "http",
+        "host": "localhost",
+        "secret": "toysrus-secret",
+        "jwt": {
+            "expires": "3h",
+            "secret": "toysrus-secret"
+        }
+    },
+    "mysql": {
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "database": "toysrus",
+        "port": 3310,
+        "connectionLimit": 10
+    }
+}
