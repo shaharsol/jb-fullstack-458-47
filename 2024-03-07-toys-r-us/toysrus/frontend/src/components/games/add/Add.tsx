@@ -10,7 +10,7 @@ import Audience from "../../../models/Audience";
 
 function Add(): JSX.Element {
 
-    const { register, handleSubmit } = useForm<Game>();
+    const { register, handleSubmit, formState } = useForm<Game>();
 
     const navigate = useNavigate();
     const [audiences, setAudiences] = useState<Audience[]>([]);
@@ -36,7 +36,12 @@ function Add(): JSX.Element {
             <h2>Add Product</h2>
             <form onSubmit={handleSubmit(addGame)}>
 
-                <select defaultValue='' {...register('audienceId')}>
+                <select defaultValue='' {...register('audienceId', {
+                    required: {
+                        value: true,
+                        message: 'audience is required'
+                    }
+                })}>
                     <option value=''>Please select audience...</option>
                     {audiences.map(audience => 
                         <option key={audience.id} value={audience.id}>
@@ -44,15 +49,39 @@ function Add(): JSX.Element {
                         </option>
                     )}
                 </select>
+                <span>{formState.errors.audienceId?.message}</span>
 
                 <label>Name:</label>
-                <input type="text" {...register('name')} />
+                <input type="text" {...register('name', {
+                    required: {
+                        value: true,
+                        message: 'name is required'
+                    }
+                })} />
+                <span>{formState.errors.name?.message}</span>
 
                 <label>Description:</label>
-                <input type="text" {...register('description')} />
+                <input type="text" {...register('description', {
+                    required: {
+                        value: true,
+                        message: 'description is required'
+                    }
+                })} />
+                <span>{formState.errors.description?.message}</span>
+
 
                 <label>Price:</label>
-                <input type="number" step="0.01" {...register('price')} />
+                <input type="number" step="0.01" {...register('price', {
+                    required: {
+                        value: true,
+                        message: 'name is required'
+                    },
+                    min: {
+                        value: 0,
+                        message: 'please enter a positive sum',
+                    }
+                })} />
+                <span>{formState.errors.price?.message}</span>
 
                 <button>add</button>
 
