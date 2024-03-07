@@ -5,6 +5,7 @@ import gamesService from "../../../services/Game";
 import notify from "../../../services/Notify";
 import Audience from "../../../models/Audience";
 import Game from "../../../models/Game";
+import { useNavigate } from "react-router-dom";
 
 function List(): JSX.Element {
 
@@ -17,6 +18,8 @@ function List(): JSX.Element {
             .then(setAudiences)
             .catch(notify.error)
     }, []);
+
+    const navigate = useNavigate();
 
     async function gamesByAudience(args: ChangeEvent<HTMLSelectElement>) {
         try {
@@ -41,6 +44,12 @@ function List(): JSX.Element {
         setMaxPrice(+args.target.value);
     }
 
+    async function deleteGame(id: number | undefined) {
+        if(!id) return;
+        await gamesService.remove(id);
+        notify.success('game was deleted');
+        navigate('/games');
+    }
 
     return (
         <div className="List">
@@ -69,6 +78,7 @@ function List(): JSX.Element {
                         <th>name</th>
                         <th>description</th>
                         <th>price</th>
+                        <th>actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,6 +86,9 @@ function List(): JSX.Element {
                         <td>{game.name}</td>
                         <td>{game.description}</td>
                         <td>{game.price}</td>
+                        <td><button onClick={() => {
+                            deleteGame(game.id)
+                        }}>delete</button></td>
                     </tr>)}
                 </tbody>
             </table>
