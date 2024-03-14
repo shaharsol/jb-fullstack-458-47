@@ -1,13 +1,13 @@
 {
     "app": {
-        "name": "toysrus",
+        "name": "lorem-ipsum",
         "port": 8080,
         "protocol": "http",
         "host": "localhost",
-        "secret": "toysrus-secret",
+        "secret": "lorem-ipsum-secret",
         "jwt": {
             "expires": "3h",
-            "secret": "toysrus-secret"
+            "secret": "lorem-ipsum-secret"
         }
     },
     "mysql": {
