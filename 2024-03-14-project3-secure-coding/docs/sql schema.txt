@@ -1,0 +1,14 @@
+const baseQuery = `
+SELECT * 
+FROM	vacations
+JOIN	follows ON follow.vacation_id = vactions.id
+WHERE	1 = 1
+`
+
+if (condition1) baseQuery += `AND follows.user_id = ?`
+if (condition2) baseQuery += `AND vacations.start_date > NOW()`
+if (condition3) baseQuery += `AND vacations.start_date < NOW() AND vacations.end_date > NOW()`
+
+
+
+
