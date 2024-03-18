@@ -5,6 +5,7 @@ import { OkPacketParams } from "mysql2";
 import query from "../../db/mysql";
 import config from "config";
 import { hashPassword } from "../../utils/crypto";
+import mysql from 'mysql2';
 
 class User implements Model {
 
