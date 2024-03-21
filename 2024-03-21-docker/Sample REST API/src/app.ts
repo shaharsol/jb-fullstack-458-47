@@ -6,6 +6,7 @@ const products = [
     {id: '32de2f51-2be0-41f1-bf97-ec6bf0322d4g', name: 'coffee', price: 5.00, stock: 200},
     {id: '32de2f51-2be0-41f1-bf97-ec6bf0322d4d', name: 'hot chocolate', price: 10.00, stock: 300},
 ]
+// added a comment
 
 const server = express();
 

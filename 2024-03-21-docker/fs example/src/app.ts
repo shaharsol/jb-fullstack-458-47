@@ -4,11 +4,13 @@ import fs from 'fs/promises';
 const server = express();
 
 server.get('/save', async (req: Request, res: Response, next: NextFunction) => {
-    await fs.writeFile('./db.txt', req.query.data as string);
+    await fs.writeFile('/db/db.txt', req.query.data as string);
+    res.send('success');
 });
+// added a comment
 
 server.get('/saved', async (req: Request, res: Response, next: NextFunction) => {
-    const data = await fs.readFile('./db.txt', 'utf-8');
+    const data = await fs.readFile('/db/db.txt', 'utf-8');
     res.send(data);
 });
 
