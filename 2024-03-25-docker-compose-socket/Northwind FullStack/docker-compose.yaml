@@ -14,13 +14,17 @@ services:
     volumes:
       - northwind-database:/var/lib/mysql
   backend:
+    depends_on:
+      - database
     container_name: northwind-backend
     ports:
       - 8082:8082
     environment:
-      - NODE_ENV=docker
+      - NODE_ENV=compose
     build: ./backend
   frontend:
+    depends_on:
+      - backend
     container_name: northwind-frontend
     ports:
       - 3000:80
