@@ -33,6 +33,7 @@ COPY --from=builder /app/build .
 
 # and now we can start nginx, which will serve our react app to any browser
 # that access this server
-CMD nginx -g daemon off;
+# CMD nginx -g daemon off;
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
 
 
