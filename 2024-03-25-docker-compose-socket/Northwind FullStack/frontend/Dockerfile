@@ -30,10 +30,9 @@ RUN rm -rf *
 
 # now we copy the react build products from the 1st stage, to here
 COPY --from=builder /app/build .
+COPY nginx.conf ../sites-available/
 
 # and now we can start nginx, which will serve our react app to any browser
 # that access this server
 # CMD nginx -g daemon off;
 ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
-
-
